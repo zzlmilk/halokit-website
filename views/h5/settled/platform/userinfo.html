@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<link href="/dist/mui/css/mui.picker.min.css" rel="stylesheet">
+		#parse("./common/cssfont.html")
+		<!-- 公共加载css end-->
+		<link href="/dist/css/settled.css" rel="stylesheet">
+		<!--<link href="/dist/css/adapter.css" rel="stylesheet">-->
+		<title>商户平台</title>
+	</head>
+
+	<body class="platform">
+		<div class="mui-content">
+			<!--商户资料 begin-->
+			<div id="tabbar-userinfo">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<div class="mui-table">
+							<div class="mui-table-cell mui-col-xs-4">
+								联系人
+							</div>
+							<div class="mui-table-cell mui-col-xs-8">
+								$!data.linkman
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-table">
+							<div class="mui-table-cell mui-col-xs-4">
+								联系QQ
+							</div>
+							<div class="mui-table-cell mui-col-xs-8 fm-arial">
+								$!data.phone
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-table">
+							<div class="mui-table-cell mui-col-xs-4">
+								店铺类型
+							</div>
+							<div class="mui-table-cell mui-col-xs-8">
+								$!data.type
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-table">
+							<div class="mui-table-cell mui-col-xs-4">
+								店铺名称
+							</div>
+							<div class="mui-table-cell mui-col-xs-8">
+								$!data.name
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-table">
+							<div class="mui-table-cell mui-col-xs-4">
+								所在城市
+							</div>
+							<div class="mui-table-cell mui-col-xs-8">
+								$!data.cityname
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-table">
+							<div class="mui-table-cell mui-col-xs-4">
+								详细地址
+							</div>
+							<div class="mui-table-cell mui-col-xs-8">
+								$!data.address
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!--<div class="mui-content-padded">
+					<button id='btnSubit' class="mui-btn mui-btn-block mui-btn-primary">修改</button>
+				</div>-->
+			</div>
+			<!--商户资料 end-->
+		</div>
+	</body>
+	<script src="/dist/mui/js/mui.min.js"></script>
+	<!--<script src="/dist/mui/js/mui.view.js"></script>
+	<script src="/dist/mui/js/mui.pullToRefresh.min.js"></script>
+	<script src="/dist/mui/js/mui.pullToRefresh.material.min.js"></script>-->
+	<script src="/dist/mui/js/mui.picker.min.js"></script>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<link href="/dist/mui/css/mui.picker.min.css" rel="stylesheet">
+		#parse("./common/cssfont.html")
+		<!-- 公共加载css end-->
+		<link href="/dist/css/settled.css" rel="stylesheet">
+		<!--<link href="/dist/css/adapter.css" rel="stylesheet">-->
+		<link href="/dist/mui/css/mui.view.min.css" rel="stylesheet">
+		<title>商户平台</title>
+	</head>
+
+	<body class="platform mui-fullscreen">
+		<div id="tabbar-statistics">
+
+			<!--页面主结构开始-->
+			<div id="statistics-app" class="mui-views">
+				<div class="mui-view">
+					<div class="mui-navbar">
+					</div>
+					<div class="mui-pages">
+					</div>
+				</div>
+			</div>
+			<!--页面主结构结束-->
+			<!--单页面开始-->
+			<div id="statistics-list" class="mui-page">
+				<!--页面标题栏开始-->
+				<div class="mui-navbar-inner mui-bar mui-bar-nav">
+					<h1 class="mui-center mui-title">营业统计</h1>
+				</div>
+				<!--页面标题栏结束-->
+				<!--页面主内容区开始-->
+				<div class="mui-page-content">
+					<div class="mui-scroll-wrapper">
+						<div class="dashboard bg-linear-blue mui-row">
+							<div class="info mui-text-center">
+								<span class="number fm-arial">$!dataList.totalmoney</span>
+								<span class="title">合计销售额（元）</span>
+							</div>
+							<div class="date mui-row">
+								<div class="datePicker mui-col-xs-6 mui-text-center startDate" data-type='start' data-options='{"type":"month","value":"$!nowYearMonth"}'>
+									<span class="title">&nbsp;开始日期 <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+									<span class="selectDate fm-arial">$!nowYearMonth</span>
+								</div>
+								<div class="datePicker mui-col-xs-6 mui-text-center endDate" data-type='end' data-options='{"type":"month","value":"$!nowYearMonth"}'>
+									<span class="title">&nbsp;结束日期 <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+									<span class="selectDate fm-arial">$!nowYearMonth</span>
+								</div>
+							</div>
+						</div>
+						<div class="list mui-row">
+							<div class="mui-scroll-wrapper">
+								<div class="mui-scroll">
+									<ul class="mui-table-view">
+										#foreach($data in $!dataList.data)
+										<li class="mui-table-view-cell mui-media">
+											<!--<a class="mui-navigate-right linkDetail" href="#statisticsDetail-list" data-date="$!data.day">-->
+												<a data-date="$!data.day">
+												<div class="mui-table">
+													<div class="mui-table-cell mui-col-xs-4 date fm-arial">
+														$!data.day
+													</div>
+													<div class="mui-table-cell mui-col-xs-7 mui-text-right fm-arial money">
+														￥$!data.money
+													</div>
+													<div class="mui-table-cell mui-col-xs-1"></div>
+												</div>
+											</a>
+										</li>
+										#end 
+										#if(!$dataList||$dataList.data.length<=0) 
+										<li class="mui-table-view-cell mui-media">
+											<a href="javascript:;" class="mui-text-center">
+												暂无新的数据
+											</a>
+										</li>
+										#end
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--页面主内容区结束-->
+			</div>
+			<!--单页面结束-->
+			<div id="statisticsDetail-list" class="mui-page">
+				<div class="mui-navbar-inner mui-bar mui-bar-nav">
+					<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>营业统计
+				</button>
+					<h1 class="mui-center mui-title">营业明细</h1>
+				</div>
+				<div class="mui-page-content">
+					<div class="list">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view orderlist">
+									<li class="mui-table-view-cell userinfo-row">
+										<div class="mui-table">
+											<div class="mui-table-cell mui-col-xs-2 headimg">
+												<img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" />
+											</div>
+											<div class="mui-table-cell mui-col-xs-6">
+												<p class="mui-h5 mui-ellipsis fc-dark name">宠物昵称</p>
+												<p class="mui-h5 mui-ellipsis fc-dark fm-arial phone">18516152077</p>
+												<p class="mui-h5 mui-ellipsis address">上海市浦东新区</p>
+											</div>
+											<div class="mui-table-cell mui-col-xs-2 mui-text-right">
+												<span class="mui-h5 fm-arial">12:25</span>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell goods-row">
+										<div class="mui-table-cell mui-col-xs-2 headimg">
+											<img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" />
+										</div>
+										<div class="mui-table-cell mui-col-xs-5">
+											<p class="mui-ellipsis fc-dark name">商品名称</p>
+											<p class="mui-ellipsis fm-arial count">*1</p>
+											<p class="mui-h5 mui-ellipsis address">颜色 规格</p>
+										</div>
+										<div class="mui-table-cell mui-col-xs-3 mui-text-right money">
+											<span class="mui-h5 fm-arial fc-dark">￥29999.00</span>
+										</div>
+									</li>
+									<li class="mui-table-view-cell goods-row">
+										<div class="mui-table-cell mui-col-xs-2 headimg">
+											<img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" />
+										</div>
+										<div class="mui-table-cell mui-col-xs-5">
+											<p class="mui-ellipsis fc-dark name">商品名称</p>
+											<p class="mui-ellipsis fm-arial count">*1</p>
+											<p class="mui-h5 mui-ellipsis address">颜色 规格</p>
+										</div>
+										<div class="mui-table-cell mui-col-xs-3 mui-text-right money">
+											<span class="mui-h5 fm-arial fc-dark">￥29999.00</span>
+										</div>
+									</li>
+								</ul>
+								<ul class="mui-table-view orderlist">
+									<li class="mui-table-view-cell userinfo-row">
+										<div class="mui-table">
+											<div class="mui-table-cell mui-col-xs-2 headimg">
+												<img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" />
+											</div>
+											<div class="mui-table-cell mui-col-xs-6">
+												<p class="mui-h5 mui-ellipsis fc-dark name">宠物昵称</p>
+												<p class="mui-h5 mui-ellipsis fc-dark fm-arial phone">18516152077</p>
+												<p class="mui-h5 mui-ellipsis address">上海市浦东新区</p>
+											</div>
+											<div class="mui-table-cell mui-col-xs-2 mui-text-right">
+												<span class="mui-h5 fm-arial">12:25</span>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell goods-row">
+										<div class="mui-table-cell mui-col-xs-2 headimg">
+											<img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" />
+										</div>
+										<div class="mui-table-cell mui-col-xs-5">
+											<p class="mui-ellipsis fc-dark name">商品名称</p>
+											<p class="mui-ellipsis fm-arial count">*1</p>
+											<p class="mui-h5 mui-ellipsis address">颜色 规格</p>
+										</div>
+										<div class="mui-table-cell mui-col-xs-3 mui-text-right money">
+											<span class="mui-h5 fm-arial fc-dark">￥29999.00</span>
+										</div>
+									</li>
+									<li class="mui-table-view-cell goods-row">
+										<div class="mui-table-cell mui-col-xs-2 headimg">
+											<img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" />
+										</div>
+										<div class="mui-table-cell mui-col-xs-5">
+											<p class="mui-ellipsis fc-dark name">商品名称</p>
+											<p class="mui-ellipsis fm-arial count">*1</p>
+											<p class="mui-h5 mui-ellipsis address">颜色 规格</p>
+										</div>
+										<div class="mui-table-cell mui-col-xs-3 mui-text-right money">
+											<span class="mui-h5 fm-arial fc-dark">￥29999.00</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="/dist/mui/js/mui.min.js"></script>
+	<script src="/dist/mui/js/mui.view.js"></script>
+	<script src="/dist/mui/js/mui.pullToRefresh.min.js"></script>
+	<script src="/dist/mui/js/mui.pullToRefresh.material.min.js"></script>
+	<script src="/dist/mui/js/mui.picker.min.js"></script>
+	<script src="/dist/js/merchantPlatformStatistics.js"></script>
+
+</html>

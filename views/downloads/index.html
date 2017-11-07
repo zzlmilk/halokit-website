@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html")
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-app-status-bar-style" content="white">
+		<meta name="format-detection" content="telephone=no">
+		<!-- 适应移动端 begin -->
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<!-- UC应用模式 -->
+		<meta name="browsermode" content="application">
+		<!-- QQ应用模式 -->
+		<meta name="x5-page-mode" content="app">
+		<!-- windows phone 点击无高光 -->
+		<meta name="msapplication-tap-highlight" content="no">
+		<!-- 适应移动端 end -->
+		<!-- 公共加载css begin-->
+		<!-- CSS -->
+		<link href="/dist/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="/dist/website/css/font-awesome.min.css" rel="stylesheet" media="screen">
+		<!-- Custom styles CSS -->
+		<link href="/dist/css/downloads.css" rel="stylesheet" media="screen">
+		<!-- 公共加载css end-->
+		<title>Halo kit 可点 App 下载</title>
+	</head>
+
+	<body>
+		<div class="container bg">
+			<img id="logo" src="/img/pc_img/d_logo.png" onclick="window.open('/');">"/>
+			<!--<p id="advstr">
+				岂止是项圈
+			</p>-->
+			<div id="qucode" class="hidden-xs">
+				<img src="/img/pc_img/d_qrcode.png" />
+				<p class="text-center">扫描二维码下载</p>
+			</div>
+			<img id="phone" src="/img/pc_img/d_phone.png" />
+
+			<button id="ios" class="hidden-xs" onclick="window.open('https://itunes.apple.com/cn/app/ke-dian/id1114713303?mt=8');"><img src="/img/pc_img/d_btn_ios.png" /></button>
+			<button id="android" class="hidden-xs" onclick="window.open('http://api.halokit.cn:81/update/android/halokit.apk');"><img src="/img/pc_img/d_btn_android.png" /></button>
+			<button id="download" class="hidden-lg hidden-md hidden-sm"><img src="/img/pc_img/d_btn_download.png" /></button>
+		</div>
+		
+		<!-- Javascript files -->
+
+		<script src="/dist/website/js/jquery-1.11.1.min.js"></script>
+		<!--<script src="/dist/bootstrap/js/bootstrap.min.js"></script>-->
+		#parse("./common/analytics.html")
+
+		<script>
+//		alert("高:"+$(window).height()+" 宽:"+$(window).width());
+			$('#download').on('click', function() {
+				var ua = navigator.userAgent.toLowerCase();
+				if(/MicroMessenger/i.test(ua)){
+					location = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.halokit.developer';
+//					alert('请在右上角选择用浏览器打开后下载');
+				}
+				else if(/iphone|ipad|ipod/.test(ua)) {
+					window.open('https://itunes.apple.com/cn/app/ke-dian/id1114713303?mt=8');	
+				} 
+				else if(/android/.test(ua)) {
+					window.open('http://api.halokit.cn:81/update/android/halokit.apk');
+				}
+				else{
+					//五
+					alert('暂不支持您的设备，敬请谅解')
+				}
+			})
+		</script>
+	</body>
+
+</html>

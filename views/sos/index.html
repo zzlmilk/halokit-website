@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet"> #parse("./common/cssfont.html")
+		<!-- 公共加载css end-->
+		<!--<link href="/dist/css/sos.css" rel="stylesheet">-->
+		<!--<link href="/dist/css/adapter.css" rel="stylesheet">-->
+		<title>sos中心</title>
+		<style>
+			.mui-bar {
+				background-color: #f8f8f8;
+				-webkit-box-shadow: 0 0 1px #eaeaea;
+				box-shadow: 0 0 1px #eaeaea;
+			}
+			
+			.mui-bar-tab .mui-tab-item.mui-active {
+				color: #c3d020 !important;
+			}
+			
+			.mui-bar-tab .mui-tab-item .mui-icon.fa {
+				font-size: 20px !important;
+				padding: 2px !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" href="javascript:;" idx="0">
+				<!--<span class="mui-icon mui-icon-home"></span>-->
+				<span class="mui-icon fa fa-safari" aria-hidden="true"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="javascript:;" idx="1">
+				<span class="mui-icon fa fa-plus-circle" aria-hidden="true">
+					<!--<span class="mui-badge">9</span>-->
+				</span>
+				<span class="mui-tab-label">发起</span>
+			</a>
+			<a class="mui-tab-item" href="javascript:;" idx="2">
+				<span class="mui-icon fa fa-heart" aria-hidden="true"></span>
+				<span class="mui-tab-label">我关注的</span>
+			</a>
+			<a class="mui-tab-item" href="javascript:;" idx="3">
+				<span class="mui-icon fa fa-user-plus" aria-hidden="true"></span>
+				<span class="mui-tab-label">我发起的</span>
+			</a>
+		</nav>
+		<script src="/dist/mui/js/mui.min.js"></script>
+		<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src="//map.qq.com/api/js?v=2.exp"></script>
+		<script src="/dist/js/sos_share.js"></script>
+		<script src="/dist/js/cookie.js"></script>
+		<script>
+			document.body.addEventListener('touchmove', function(event) {
+				event.preventDefault();
+			}, false);
+			var pageArr = [{
+				id: 'find',
+				url: 'find',
+				styles: {
+					top: 0,
+					bottom: 0,
+					bounce: 'vertical'
+				}
+			}, {
+				id: 'publish',
+				url: 'publish',
+				styles: {
+					top: 0,
+					bottom: 0,
+					bounce: 'vertical'
+				}
+			}, {
+				id: 'myInterest',
+				url: 'myInterest',
+				styles: {
+					top: 0,
+					bottom: 0,
+					bounce: 'vertical'
+				}
+			}, {
+				id: 'published',
+				url: 'published',
+				styles: {
+					top: 0,
+					bottom: 0,
+					bounce: 'vertical'
+				}
+			}];
+
+			//根据当前的hash切换选中的页面
+			var pageIndex = 0, //页面索引
+				hashLoaction = window.location.hash; //hash值地址位
+			if(hashLoaction && hashLoaction.replace(/ /g, '')) {
+				hashLoaction = hashLoaction.substring(1);
+				for(var i = 0; i < pageArr.length; i++) {
+					if(pageArr[i].id == hashLoaction) {
+						pageIndex = i;
+						sessionStorage.removeItem('isnotarbar') //扎到跳转页就移除
+						break;
+					}
+				}
+			}
+			//如果打开的是发布 仅app 微信会失效去获取用户授权
+			//先删除 以免再次进入也会显示返回提示
+			delete sessionStorage.needShowBackInfo;
+			if(hashLoaction == 'publish'){
+				//设置需要显示返回提示的信息
+				
+				sessionStorage.needShowBackInfo = true;
+				window.location.href = '/sos/publish';
+			}
+			
+			//判断hash为notarbar
+			if(hashLoaction == 'notarbar' || sessionStorage.isnotarbar) {
+				mui('.mui-bar-tab')[0].classList.add('mui-hidden');
+				sessionStorage.isnotarbar = true;
+			} else {
+				//清除所有hash
+				window.location.hash = '';
+			}
+
+			var tarbar_items = mui('.mui-bar-tab')[0].querySelectorAll('.mui-tab-item');
+			changeTarBar(pageIndex);
+			//切换选中的tarbar
+			function changeTarBar(index) {
+				//全部清除选中状态
+				mui.each(tarbar_items, function(k, v) {
+					//如果当前项不是传入的项
+					if(v.getAttribute('idx') != index) {
+						//去除状态
+						if(v.classList.contains('mui-active')) {
+							v.classList.remove('mui-active');
+						}
+					} else {
+						//是传入的项
+						if(!v.classList.contains('mui-active')) {
+							v.classList.add('mui-active');
+						}
+					}
+				});
+			}
+
+			mui.init({
+				swipeBack: false,
+				statusBarBackground: '#efeff4',
+				gestureConfig: {
+					doubletap: true
+				},
+				subpages: [pageArr[pageIndex]]
+			});
+
+			var btns = mui('.mui-tab-item');
+			btns.each(function(i, btn) {
+				btn.addEventListener('tap', function() {
+					var idx = this.getAttribute('idx');
+					var iframe = mui('.mui-iframe-wrapper iframe')[0];
+					var currentPage = pageArr[parseInt(idx)];
+					//					console.log(idx);
+					//如果是发布页面
+					if(currentPage.id === 'publish') {
+						//直接跳转
+						window.location.href = currentPage.url;
+					} else {
+						//内部跳转
+						iframe.src = currentPage.url;
+						iframe.id = currentPage.id;
+						iframe.name = currentPage.id;
+					}
+
+				});
+			});
+
+			mui.ready(function() {
+				//TODO 绑定ifarmeload方法 制作等待遮罩
+				mui('.mui-iframe-wrapper iframe')[0].onload = function() {
+					console.log('打开的页面地址', this.src);
+				};
+
+				
+				#if($!memberid)
+					//将当前用户id缓存到页面前端
+					sessionStorage.setItem('memberid', '$!memberid');
+				#else
+					sessionStorage.removeItem('memberid');
+				#end
+
+			});
+
+			wx.ready(function() {
+				wx.getLocation({
+					type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+					success: function(res) {
+						var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+						var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+						var speed = res.speed; // 速度，以米/每秒计
+						var accuracy = res.accuracy; // 位置精度
+//						console.log('纬度' + latitude);
+//						console.log('经度' + longitude);
+//						console.log('速度' + speed);
+//						console.log('位置精度' + accuracy);
+						var locationStr;
+						var geocoder = new qq.maps.Geocoder({
+							complete: function(result) {
+								locationStr = result.detail.addressComponents.city;
+								console.log('具体地址', locationStr);
+								if(locationStr&&!getCookie('location')) {
+									window.location.href = window.location.href.split('?')[0] + '?location=' + locationStr;
+								}
+							}
+						});
+						var coord = new qq.maps.LatLng(res.latitude, res.longitude)
+						geocoder.getAddress(coord);
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

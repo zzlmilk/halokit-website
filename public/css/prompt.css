@@ -1,0 +1,205 @@
+@charset 'utf-8';
+.wrap {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.col {
+    width: 100% !important;
+}
+
+
+/* 头部标题 */
+
+.title-details {
+    height: 20px;
+    color: #bcc91c;
+    font-size: 16px;
+}
+
+
+/* 中间部分提示内容 */
+
+.prompt-info {
+    color: #999;
+    padding: 20px 0;
+    line-height: 20px;
+}
+
+
+/* 选择按钮 */
+
+.choose-btn .confirm-btn {
+    width: 47%;
+    float: left;
+    color: #bcc91c;
+    padding: 8px 0;
+    border: 1px solid #bcc91c;
+    background-color: #f9f8d9;
+    border-radius: 3px;
+}
+
+.choose-btn .cancel-btn {
+    width: 47%;
+    float: right;
+    color: #fff;
+    padding: 8px 0;
+    border: 1px solid #a2a3a3;
+    background-color: #c9caca;
+    border-radius: 3px;
+}
+
+
+/* 输入框统一样式 */
+
+.pay-form input {
+    width: 100%;
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 12px;
+    color: #b1b1b1;
+}
+
+input::-moz-input-placeholder {
+    font-size: 12px;
+    color: #b1b1b1;
+}
+
+input::-ms-input-placeholder {
+    font-size: 12px;
+    color: #b1b1b1;
+}
+
+
+/* 验证码输入框样式 */
+
+.captcha-content {
+    width: 100%;
+}
+
+.captcha-content .captcha-input {
+    width: 48%;
+}
+
+.captcha-content .get-captcha {
+    width: 50%;
+    color: #bcc91c;
+    cursor: pointer;
+}
+
+
+/* 订单详情 */
+
+.order-list .list-details td {
+    height: 70px;
+}
+
+.list-details .img-ring {
+    width: 20%;
+}
+
+.list-details .name-size-color {
+    width: 40%;
+    color: #999;
+    font-size: 12px;
+}
+
+.list-details .total-pay {
+    width: 40%;
+}
+
+.total-pay .need-pay {
+    color: #bcc91c;
+    font-size: 16px;
+}
+
+
+/* 提交按钮 */
+
+.pay-btn-not {
+    width: 100%;
+    color: #fff;
+    background-color: #c9caca;
+    border: 1px solid #a2a3a3;
+    border-radius: 3px;
+    padding: 8px 0;
+}
+
+.pay-btn {
+    width: 100%;
+    color: #bcc91c;
+    background-color: #f9f8d9;
+    border: 1px solid #bcc91c;
+    border-radius: 3px;
+    padding: 8px 0;
+}
+
+.img-ring>img {
+    height: 80%;
+    margin: auto;
+}
+
+.err-word {
+    color: white;
+    border: 1px solid rgba(255, 0, 0, .8);
+    border-radius: 3px;
+    width: 100%;
+    padding: 5px;
+    background-color: rgba(255, 0, 0, .5);
+    box-sizing: border-box;
+}
+
+.tip {
+    background-color: rgba(0, 0, 0, .7);
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    color: white;
+    text-align: center;
+}
+
+.h5-loader {
+    color: white;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 5px dotted;
+    border-radius: 50%;
+    vertical-align: middle;
+    animation: rotate 3s linear;
+    animation-iteration-count: infinite;
+    margin-right: 1em;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}

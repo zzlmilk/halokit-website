@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<!--<link href="//cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />-->	
+		<!-- 公共加载css end-->
+		<link href="/dist/mui/css/mui.indexedlist.min.css" rel="stylesheet" />
+		<!--<link href="/dist/css/adapter.css" rel="stylesheet">-->
+		<title>位置选择</title>
+		<style>
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+			.mui-bar {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+			}
+			.mui-indexed-list-inner{
+				padding-bottom: 60px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">位置选择</h1>
+		</header>
+		<div class="mui-content">
+			<div id='list' class="mui-indexed-list">
+				<div class="mui-indexed-list-search mui-input-row mui-search">
+					<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索城市 拼音或首字母">
+				</div>
+				<div class="mui-indexed-list-bar">
+					#foreach($!data in $!indexData)
+					<a>$!data.key</a>
+					#end
+				</div>
+				<div class="mui-indexed-list-alert"></div>
+				<div class="mui-indexed-list-inner">
+					<div class="mui-indexed-list-empty-alert">没有数据</div>
+					<ul id="indexSeletor" class="mui-table-view">
+						#foreach($!data in $!indexData)
+						<li data-group="$!data.key" class="mui-table-view-divider mui-indexed-list-group">$!data.key</li>
+							#foreach($!item in $!data.data)
+						<li data-value="$!item.pyIndex" data-tags="$!item.pyAll" class="item mui-table-view-cell mui-indexed-list-item">$!item.name</li>
+							#end
+						#end
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="/dist/mui/js/mui.min.js"></script>
+		<script src="/dist/mui/js/mui.indexedlist.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui.ready(function() {
+				var header = document.querySelector('header.mui-bar');
+				var list = document.getElementById('list');
+				//calc hieght
+				list.style.height = (document.body.offsetHeight - header.offsetHeight) + 'px';
+				//create
+				window.indexedList = new mui.IndexedList(list);
+			});
+			mui('#indexSeletor').on('tap','.item',function(){
+				window.location.href = '/sos/?location='+this.innerText;
+			});
+		</script>
+	</body>
+
+</html>

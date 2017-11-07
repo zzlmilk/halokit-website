@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet"> #parse("./common/cssfont.html")
+		<!-- 公共加载css end-->
+		<link href="/dist/css/settled.css" rel="stylesheet">
+		<link href="/dist/css/adapter.css" rel="stylesheet">
+		<title>商户平台</title>
+	</head>
+
+	<body class="platform-container">
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="javascript:;" idx="0">
+				<!--<span class="mui-icon mui-icon-home"></span>-->
+				<span class="mui-icon fa fa-calendar-check-o" aria-hidden="true"></span>
+				<span class="mui-tab-label">签到</span>
+			</a>
+			<a class="mui-tab-item" href="javascript:;" idx="1">
+				<span class="mui-icon fa fa-bar-chart" aria-hidden="true">
+					<!--<span class="mui-badge">9</span>-->
+				</span>
+				<span class="mui-tab-label">营业统计</span>
+			</a>
+			<a class="mui-tab-item" href="javascript:;" idx="2">
+				<span class="mui-icon fa fa-user-secret" aria-hidden="true"></span>
+				<span class="mui-tab-label">商户资料</span>
+			</a>
+		</nav>
+	</body>
+	<script src="/dist/mui/js/mui.min.js"></script>
+	<script>
+		var pageArr = [{
+			id: 'signin',
+			url: 'platformShowSignin',
+			styles: {
+				top: 0,
+				bottom: 0,
+				bounce: 'vertical'
+			}
+		}, {
+			id: 'statistics',
+			url: 'platformShowStatistics',
+			styles: {
+				top: 0,
+				bottom: 0,
+				bounce: 'vertical'
+			}
+		}, {
+			id: 'userinfo',
+			url: 'platformShowUserinfo',
+			styles: {
+				top: 0,
+				bottom: 0,
+				bounce: 'vertical'
+			}
+		}];
+		mui.init({
+			swipeBack: false,
+			statusBarBackground: '#f7f7f7',
+			gestureConfig: {
+				doubletap: true
+			},
+			subpages: [pageArr[0]]
+		});
+
+		var btns = mui('.mui-tab-item');
+		btns.each(function(i, btn) {
+			btn.addEventListener('tap', function() {
+				var idx = this.getAttribute('idx');
+				var iframe = mui('.mui-iframe-wrapper iframe')[0];
+				var currentPage = pageArr[parseInt(idx)];
+				iframe.src = currentPage.url;
+				iframe.id = currentPage.id;
+				iframe.name = currentPage.id;
+			});
+		});
+
+		mui.ready(function() {
+			//TODO 绑定ifarmeload方法 制作等待遮罩
+			mui('.mui-iframe-wrapper iframe')[0].onload = function() {
+				console.log(this.src);
+			};
+		});
+	</script>
+
+</html>

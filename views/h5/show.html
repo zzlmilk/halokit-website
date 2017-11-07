@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="renderer" content="webkit" />
+		<!--防止外嵌-->
+		<meta http-equiv="Window-target" content="_top" />
+		<!-- 全部设备按照750缩放 -->
+		<meta name="viewport" content="width=750,  user-scalable=no" />
+		<!-- 防止ios将数字识别为手机号码，捣乱布局，样式 -->
+		<meta name="format-detection" content="telephone=no" />
+		<title>Halo kit</title>
+		<link rel="stylesheet" href="/css/animate.css" />
+		<link rel="stylesheet" href="/css/show.css" />
+	</head>
+
+	<body>
+		<div id="loading">
+			<img src="/img/icon.png" />
+		</div>
+		<!-- 一组 -->
+		<div id="sceen-1" class="sceen theme-rgba hide">
+			<!--第一个画面-->
+			<div id="sceen-1-1" class="">
+				<img src="/img/icon.png " class="cc animated fadeIn" />
+				<img src="/img/next.png" id="next" class="cb next animated repeat flash" />
+			</div>
+			<!--第二个画面-->
+			<div id="sceen-1-2" class="hide sceen theme-rgba">
+				<img src="/img/welcome.png" class="cc animated fadeIn welcome" />
+				<img src="/img/next.png" id="next2" class="cb next animated repeat flash" />
+			</div>
+			<img src="/img/bg1.png" id="sceen-1-bg" class="abs lt0 cc z img-bg" />
+		</div>
+		<!--二组-->
+		<div id="sceen-2" class="sceen hide">
+			<ul id="bar" class="bar" style="right: 0;">
+				<li>
+					<a id="linkKnow" class="theme-color" href="javascript:;">了解<br/>可点</a>
+				</li>
+				<li>
+					<a id="linkContact" class="theme-color" href="javascript:;">联系<br/>我们</a>
+				</li>
+			</ul>
+			<!--切换箱-->
+			<div class="slider-box" id="slider-box">
+				<!-- 四个动画 -->
+				<div id="sceen-2-1" class="item">
+					<!--左侧白色圆点-->
+					<div class="radius-group rgba">
+						<i class="now"></i>
+						<i></i>
+						<i></i>
+						<i></i>
+					</div>
+					<!--展示图片-->
+					<img src="/img/bg-3-1.png" class="img-bg animated fadeIn" />
+					<!--动画-->
+					<!-- <img src="/img/ring-white.png" class="abs ring z1 animated fadeInUp" /> -->
+				</div>
+				<div id="sceen-2-2" class="item hide">
+					<!--左侧白色圆点-->
+					<div class="radius-group rgba">
+						<i></i>
+						<i class="now"></i>
+						<i></i>
+						<i></i>
+					</div>
+					<!--展示图片-->
+					<img src="/img/bg-3-3.png" class="img-bg animated fadeIn" />
+					<!--动画-->
+					<!-- <img src="/img/ring-white.png" class="abs ring z1" />
+                <img src="/img/line1.png" class="abs line1 z1 animated fadeIn" />
+                <img src="/img/borad.png" class="abs board z1 animated flipInX" /> -->
+					<!--文字展示-->
+				</div>
+				<div id="sceen-2-3" class="item hide">
+					<!--左侧白色圆点-->
+					<div class="radius-group">
+						<i></i>
+						<i></i>
+						<i class="now"></i>
+						<i></i>
+					</div>
+					<!--展示图片-->
+					<img src="/img/bg-3-2.png" class="img-bg animated fadeIn" />
+					<!--动画-->
+					<!-- <img src="/img/phone.png" class="abs phone z1 animated fadeInUp" /> -->
+					<!--文字展示-->
+				</div>
+				<div id="sceen-2-4" class="item hide">
+					<!--左侧白色圆点-->
+					<div class="radius-group">
+						<i></i>
+						<i></i>
+						<i></i>
+						<i class="now"></i>
+					</div>
+					<!--展示图片-->
+					<img src="/img/bg-3-4.png" class="img-bg animated fadeIn" />
+					<!--动画-->
+					<!-- <img src="/img/phone.png" class="abs phone z1" /> -->
+					<img src="$!headimgurl" class="head ct animated fadeIn" />
+					<!-- <img src="/img/ring1.png" class="abs ring1 z0 animated bounceInUp" />
+                <img src="/img/ring2.png" class="abs ring2 z0 animated bounceInUp" />
+                <img src="/img/ring3.png" class="abs ring3 z0 animated bounceInUp" />
+                <img src="/img/ring4.png" class="abs ring4 z0 animated bounceInUp" /> -->
+                	#if($!type)
+	                <button id="btnDrawer" href="/h5/bf22e28c896a4a75b0cdc2fa5d450c01?memberid=$!memberid&shopcode=$!shopcode&type=$!type">立即购买</button>
+	                #elseif(!$!type&&$!shopcode)
+	                <button id="btnDrawer" href="/h5/bf22e28c896a4a75b0cdc2fa5d450c01?shopcode=$!shopcode">立即购买</button>
+	                #else
+	                <button id="btnDrawer" href="/h5/bf22e28c896a4a75b0cdc2fa5d450c01">立即购买</button>
+	                #end
+					
+				</div>
+			</div>
+			<!-- 文本切换 -->
+			<div id="resize-word" class="word">
+				<div class="cc z0 item">
+					<p class="first-text">牵引器具</p>
+					<p class="en-text en">Collar</p>
+					<p>不论</p>
+					<p>什么材质，什么颜色</p>
+					<p>脖子上的小小圆环</p>
+					<p>就是最大的安全感</p>
+				</div>
+				<div class="cc z0 item hide animated fadeIn">
+					<p class="first-text">可更换劲带</p>
+					<p class="en-text en">Replaceable</p>
+					<p class="en-text en">Neckband</p>
+					<p>劲带可拆卸</p>
+					<p>使项圈变换风格</p>
+					<p>适应不同场景与心情</p>
+					<p>为项圈增加前卫气息</p>
+				</div>
+				<div class="cc z0 item hide animated fadeIn">
+					<p class="en-text en">Design</p>
+					<p class="en-text en">Description</p>
+					<p>以独具一格的形式来彰显产品个性</p>
+					<p>空心的圆环设计搭配灯带更吸引注意，</p>
+					<p>无时无刻不提醒着旁人这是一个与众不同的智能产品</p>
+					<p>整体上更是弱化了装饰的感觉，突出了一些装备感，使产品适用于宠物</p>
+				</div>
+				<div class="cc z0 item hide animated fadeIn">
+					<p class="first-text">专属 APP</p>
+					<p class="en-text en">Real-time</p>
+					<p class="en-text en">Push</p>
+					<p class="en-text en">Notification+Records</p>
+					<p>让我与TA连接更紧密</p>
+				</div>
+			</div>
+			<script type="text/javascript" src="/js/loader.js"></script>
+			<script type="text/javascript" src="/js/show.js"></script>
+			#parse("./common/analytics.html")
+	</body>
+
+</html>

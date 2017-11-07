@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="renderer" content="webkit" />
+		<!--防止外嵌-->
+		<meta http-equiv="Window-target" content="_top" />
+		<!-- 全部设备按照750缩放 -->
+		<meta name="viewport" content="width=750,  user-scalable=no" />
+		<!-- 防止ios将数字识别为手机号码，捣乱布局，样式 -->
+		<meta name="format-detection" content="telephone=no" />
+		<title>Halo kit</title>
+		<link rel="stylesheet" href="/css/animate.css" />
+		<link rel="stylesheet" href="/css/show.css" />
+		<style>
+			.word p {
+				font-size: 32px;
+			}
+			
+			.word p a {
+				color: #0062CC;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="loading">
+			<img src="/img/icon.png" />
+		</div>
+		<ul id="bar" class="bar" style="right: 0;">
+			<li>
+				<a id="linkProdInfo" class="theme-color" href="javascript:;">产品<br/>介绍</a>
+			</li>
+			<li>
+				<a id="linkKnow" class="theme-color" href="javascript:;">了解<br/>可点</a>
+			</li>
+		</ul>
+		<div class="slider-box p0" style="height: 620px;">
+			<img src="/img/toplogo.png" />
+			<img src="/img/contact.png" class="animated fadeIn" style="width: 100%;" />
+		</div>
+		<div id="resize-word" class="word animated fadeInanimated fadeIn">
+			<div class="cc z0 item ">
+				<p class="en-text en">客户服务</p>
+				<p class="mt15">
+					客服电话 ：
+					<a href="tel:4007759206">400-775-9206</a>
+				</p>
+				<p class="mt15">
+					客服邮箱 ： service@pet-more.cn
+				</p>
+
+				<p class="en-text en mt30">联系我们</p>
+				<p class="mt15">
+					&nbsp;&nbsp;&nbsp;联系人 ：郑先生
+				</p>
+				<p class="mt15">
+					联系电话 ：
+					<a href="tel:13501716677">13501716677</a>
+				</p>
+				<p class="mt15">
+					公司邮箱 ： zhengjc@pet-more.cn
+				</p>
+				<p class="mt15">
+					公司地址：<br/>&nbsp;&nbsp;&nbsp;上海市徐汇区虹梅路2071号二号楼311室
+				</p>
+				<p class="tc mt15" style="color: #747884;border-top: 1px solid #e0e0e0;padding: 10px 0;"><small>沪ICP备16015040号-2</small></p>
+			</div>
+
+			
+		</div>
+		<script type="text/javascript" src="/js/loader.js"></script>
+		<script>
+			var prefix = "/";
+			new loader([
+				prefix + "img/toplogo.png",
+				prefix + "img/contact.png"
+			], function(e) {
+
+				// 移除加载动画
+				document.body.removeChild(document.getElementById("loading"));
+
+				//跳转按钮
+				document.getElementById('linkProdInfo').addEventListener('touchend', function(e) {
+					location.href = '/h5/'
+				})
+
+				document.getElementById('linkKnow').addEventListener('touchend', function(e) {
+					location.href = "/h5/about/know";
+				})
+			}).imgLoader();
+		</script>
+	</body>
+
+</html>

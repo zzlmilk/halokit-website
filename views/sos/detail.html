@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet"> #parse("./common/cssfont.html")
+		<!-- 公共加载css end-->
+		<link href="/dist/mui/css/mui.picker.min.css" rel="stylesheet">
+		<link href="/dist/mui/css/mui.poppicker.min.css" rel="stylesheet" />
+		<link href="/dist/css/sos.css" rel="stylesheet">
+		<link href="/dist/css/adapter.css" rel="stylesheet">
+		<title>$!detail.data.title</title>
+		<style>
+			.mui-scroll-wrapper {
+				top: 46px;
+			}
+			
+			.mui-scroll {
+				padding-bottom: inherit;
+			}
+			
+			.mui-title {
+				width: 40% !important;
+				margin: 0 auto !important;
+			}
+			
+			.us_text {
+				-webkit-user-select: text !important;
+			}
+		</style>
+	</head>
+
+	<body id="find">
+		<header id="header" class="mui-bar mui-bar-nav">
+			<h1 id="pagetitle" class="mui-title">$!detail.data.title</h1>
+			<button class="back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>发现更多
+			</button>
+			<button class="publish mui-right mui-btn mui-btn-link mui-pull-right">
+				我要发布
+			</button>
+		</header>
+		<div class="mui-content">
+			<div id="find-detail">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div id="slider" class="mui-slider">
+							<div class="mui-slider-group">
+								#foreach($data in $!detail.data.halokitsosimages)
+								<div class="mui-slider-item">
+									<img data-src="$!data.imageurl">
+								</div>
+								#end
+							</div>
+							<div class="mui-slider-indicator">
+								#foreach($data in $!detail.data.halokitsosimages)
+								<div class="mui-indicator"></div>
+								#end
+								<!--<div class="mui-indicator mui-active"></div>
+									<div class="mui-indicator"></div>-->
+							</div>
+						</div>
+
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell userinfo">
+								#if($!detail.data.imagePath)
+								<img id="petheadimg" class="headimg mui-media-object mui-pull-left mui-col-xs-2" src="$!detail.data.imagePath"> #else
+								<img id="petheadimg" class="headimg mui-media-object mui-pull-left mui-col-xs-2" src="http://7xwshy.com1.z0.glb.clouddn.com/7ZBisD2KcPsWDkwT2703.jpeg"> #end
+								<div class="mui-media-body">
+									<p>
+										<span id="petname" class="name fc-dark fs15">$!detail.data.nickname</span>
+										<a id="btn-interest" data-type="do" class="mui-pull-right fc-light"><i class="fa fa-heart-o" aria-hidden="true"></i> 关注</a>
+									</p>
+									<p class="fs13">
+										<span class="location fc-light">$!detail.data.city</span>
+										<span class="time fc-light fm-arial mui-pull-right">$!detail.data.createdate</span>
+									</p>
+								</div>
+								<p class="describe fc-dark us_text">
+									$!detail.data.message
+								</p>
+							</li>
+							<li class="mui-table-view-cell">
+								<div class="mui-row">
+									<div class="mui-col-xs-4">
+										丢失地点：
+									</div>
+									<!--<div class="mui-col-xs-8">
+										<div class="lostLocation">$!detail.data.lostplace</div>
+										<div class="lostAddr mgt10">$!detail.data.address</div>
+									</div>-->
+									<div class="mui-col-xs-8 us_text">
+										$!detail.data.address
+									</div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								<div class="mui-row">
+									<div class="mui-col-xs-4">
+										丢失时间：
+									</div>
+									<div class="mui-col-xs-8 lostTime fm-arial us_text">
+										$!detail.data.lostdate
+									</div>
+								</div>
+							</li>
+						</ul>
+
+						<ul class="mui-table-view mgt10">
+							<li class="mui-table-view-cell">
+								<div class="mui-row">
+									<div class="mui-col-xs-4">
+										联系电话：
+									</div>
+									<div class="mui-col-xs-8 phone fm-arial us_text">
+										$!detail.data.phone
+									</div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								<div class="mui-row">
+									<div class="mui-col-xs-4">
+										&nbsp;&nbsp;QQ号：
+									</div>
+									<div class="mui-col-xs-8 qq fm-arial us_text">
+										#if($!detail.data.qq) $!detail.data.qq #else 无 #end
+									</div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								<div class="mui-row">
+									<div class="mui-col-xs-4">
+										&nbsp;微信号：
+									</div>
+									<div class="mui-col-xs-8 wechat fm-arial us_text">
+										#if($!detail.data.wechat) $!detail.data.wechat #else 无 #end
+									</div>
+								</div>
+							</li>
+						</ul>
+
+						<div class="mgt10 comment-list">
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell">
+									<div class="mui-row">
+										<!--<div class="mui-col-xs-4 mui-text-left fc-light">
+												<i class="fa fa-eye" aria-hidden="true"></i> 看过：<span class="seeCount fm-arial">50000</span>
+											</div>-->
+										<div class="mui-col-xs-4 mui-text-left fc-light">
+											<i class="fa fa-commenting"></i> 线索数：<span class="commentCount fm-arial">$!detail.totalcomment</span>
+										</div>
+										<div class="mui-col-xs-4 mui-text-left fc-light">
+											<i class="fa fa-heart-o" aria-hidden="true"></i> 关注数：<span class="interestCount fm-arial">$!detail.totalattention</span>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<ul class="mui-table-view clearTopBoder clearBottomBoder">
+								<li class="mui-table-view-cell">
+									<div class="mui-row">
+										<div class="mui-col-xs-9">
+											<input id="comment" type="text" placeholder="提供线索" />
+										</div>
+										<div class="mui-col-xs-3 mui-text-right">
+											<button id="subComment">提交</button>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<ul class="mui-table-view list">
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/dist/mui/js/mui.min.js"></script>
+		<script src="/dist/mui/js/mui.pullToRefresh.min.js"></script>
+		<script src="/dist/mui/js/mui.pullToRefresh.material.min.js"></script>
+		<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src="/dist/mui/js/mui.lazyload.min.js"></script>
+		<script src="/dist/mui/js/mui.lazyload.img.min.js"></script>
+		<script>
+			sosid = "$!detail.data.id",
+				needguanzhu = $!flag_need_guanzhu,
+				attention = $!detail.attention;
+		</script>
+		<script src="/dist/js/sos_share_detail.js"></script>
+	</body>
+
+</html>

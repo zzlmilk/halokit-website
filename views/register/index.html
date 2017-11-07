@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<!--<link href="//apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />-->
+		<!-- 公共加载css end-->
+		<link href="/dist/css/settled.css" rel="stylesheet">
+		<link href="/dist/css/adapter.css" rel="stylesheet">
+		<title>可点注册</title>
+	</head>
+	<body class="apply">
+		<div class="mui-content">
+			<div id="logo">
+				<img src="/img/pc_img/logo.png" />
+			</div>
+			<form id='form' class="mui-input-group">
+				<div class="mui-input-row">
+					<label>手机号</label>
+					<input id='account' type="number" class="mui-input-clear mui-input" placeholder="请输入手机号"/>
+				</div>
+				<div class="mui-input-row">
+					<label>验证码</label>
+					<input id='code' type="number" class="mui-input-clear mui-input" placeholder="请输入验证码"/>
+				</div>
+				<button id="btnGetVcode" type="button" class="mui-btn mui-btn-grey" data-loading-text="请等待">获取验证码</button>
+			</form>
+			<!--<div class="mui-content-padded">
+				绑定既同意
+				<a href="#">《可点商家用户使用协议》</a>
+			</div>-->
+			#if(!$!type)
+			<div class="mui-input-group">
+				<div class="mui-input-row">
+					<label>宠物昵称</label>
+					<input id='petnickname' type="text" class="mui-input-clear mui-input" placeholder="请输入宠物昵称 最长25位" maxlength="25"/>
+				</div>
+			</div>
+			#end
+			<div class="mui-content-padded">
+				<a href="#">账号可同时用于可点app登录</a>
+			</div>
+			<div class="mui-content-padded">
+				<button id='btnBinding' class="mui-btn mui-btn-block mui-btn-success">注册</button>
+			</div>
+
+		</div>
+
+		<script src="/dist/mui/js/mui.min.js"></script>
+		<script src="/dist/js/register.js"></script>
+	</body>
+
+</html>

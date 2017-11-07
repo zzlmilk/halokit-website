@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <title>Halo kit</title>
+    <link rel="icon" sizes="any" href="/img/pc_img/icon.png" />
+    <link rel="stylesheet" href="/dist/css/pc_css/all.css" />
+    <link rel="stylesheet" href="/dist/css/pc_css/info.css" />
+    <link rel="stylesheet" type="text/css" href="/dist/css/pc_css/sprite.css">
+</head>
+
+<body>
+    #parse ('./common/header.html')
+    <main class="main-wrap">
+        <section class="choose-info pr">
+            <div class="for-wid bc">
+                <div class="part-choose mt30">
+                    <p class="fs16 lh2 pl10">选择您的收件信息</p>
+                    <div class="ch-address mt5">
+                        <div class="detail-addr dlb fl lh2 pl30 pt20">
+                            <p>收货信息</p>
+                            <p>某某某</p>
+                            <p>888****8888</p>
+                            <p>四川 成都市 锦江区 光大巷1号...</p>
+                        </div>
+                        <a class="edit-addr dlb fl lh2 pl30 pt20" href="#">
+                            <div class="fl">
+                                <p>收货信息</p>
+                                <p>某某某</p>
+                                <p>888****8888</p>
+                                <p>四川 成都市 锦江区 光大巷1号...</p>
+                            </div>
+                            <i class="pr fr i-edit-addr"></i>
+                        </a>
+                        <a class="add-addr dlb fl tac" href="#">
+                            <i class="h-center i-add-addr"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="add-info mt30">
+                    <p class="fs16 lh2 pl10">填写收件信息</p>
+                    <form class="add-tab mt5">
+                        <table class="tab-info">
+                            <tbody>
+                                <tr>
+                                    <td>收件人姓名</td>
+                                    <td>
+                                        <input class="ipt-info" type="text" placeholder="收件人姓名 Name" />
+                                    </td>
+                                    <td>&emsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>联系电话</td>
+                                    <td>
+                                        <input class="ipt-info" type="text" placeholder="收件人联系电话 Phone Number" />
+                                    </td>
+                                    <td>&emsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>收件地址</td>
+                                    <td>
+                                        <select class="addr-sel mr5">
+                                            <option>省/直辖市</option>
+                                            <option>省/直辖市</option>
+                                        </select>
+                                        <select class="addr-sel mr5">
+                                            <option>城市</option>
+                                            <option>城市</option>
+                                        </select>
+                                        <select class="addr-sel mr5">
+                                            <option>区/县</option>
+                                            <option>区/县</option>
+                                        </select>
+                                        <select class="addr-sel">
+                                            <option>所属街道</option>
+                                            <option>所属街道</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <input class="ipt-info" type="text" placeholder="详细地址" />
+                                    </td>
+                                    <td>&emsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>开具发票</td>
+                                    <td>
+                                        <span class="dlb fl ml10 mr20"><a class="is-invoice pr mr10 dlb r50" href="#"></a>是</span>
+                                        <span class="dlb pr fl mr5"><a class="no-invoice pr mr10 dlb r50" href="#"></a>否</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>备&emsp;注</td>
+                                    <td>
+                                        <input class="ipt-info" type="text" placeholder="(可选)" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+                </form>
+                <div class="pro-list mt30">
+                    <p class="fs16 lh2 pl10">产品清单</p>
+                    <div class="pro-para mt5 pr">
+                        <ul>
+                            <li>
+                                <img class="h-center" src="/img/pc_img/ring_gold.png" />
+                            </li>
+                            <li>
+                                <div class="lh2 h-center fs16">
+                                    <span class="db">Halo kit&emsp;金L</span>
+                                    <span class="db">宠物智能项圈</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="dlb h-center fs16">￥598</span>
+                            </li>
+                            <li>
+                                <span class="dlb h-center fs16">数量：1</span>
+                            </li>
+                            <li>
+                                <span class="dlb h-center fc9">预计发货时间：3-5个工作日</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="use-benefit mt30 pl20 pr20">
+                    <span class="dlb fl fs16">使用优惠券</span>
+                    <div class="total-pro fr pr lh2">
+                        <p class="c">
+                            <span class="dlb fl">商品件数：</span>
+                            <span class="fo-col dlb fr">1件</span>
+                        </p>
+                        <p class="c">
+                            <span class="dlb fl">金额合计：</span>
+                            <span class="fo-col dlb fr">598元</span>
+                        </p>
+                        <p class="c">
+                            <span class="dlb fl">运费：</span>
+                            <span class="fo-col dlb fr">0元</span>
+                        </p>
+                        <p class="c">
+                            <span class="dlb fl">应付总额：</span>
+                            <span class="fo-col fo-siz dlb fr">598.00元</span>
+                        </p>
+                        <a class="close-acco dlb mt30 tac pt5 pb5 fs18" href="#">去结算</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    #parse ('./common/footer.html')
+</body>
+
+</html>

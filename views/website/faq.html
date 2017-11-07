@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html")
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-app-status-bar-style" content="white">
+		<meta name="format-detection" content="telephone=no">
+		<!-- 适应移动端 begin -->
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<!-- UC应用模式 -->
+		<meta name="browsermode" content="application">
+		<!-- QQ应用模式 -->
+		<meta name="x5-page-mode" content="app">
+		<!-- windows phone 点击无高光 -->
+		<meta name="msapplication-tap-highlight" content="no">
+		<!-- 适应移动端 end -->
+		<script>
+		</script>
+		<!-- 公共加载css begin-->
+		<!-- CSS -->
+		<link href="/dist/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> #parse("./common/cssfont.html")
+		<link href="/dist/website/css/simple-line-icons.css" rel="stylesheet" media="screen">
+		<link href="/dist/website/css/animate.css" rel="stylesheet">
+		<!-- Custom styles CSS -->
+		<link href="/dist/website/css/website.min.css" rel="stylesheet" media="screen">
+		<script src="/dist/website/js/modernizr.custom.js"></script>
+		<!-- 公共加载css end-->
+		<title>Halo kit 可点 - FAQ</title>
+	</head>
+
+	<body>
+		<!-- Preloader -->
+
+		<div id="preloader">
+			<div id="status"></div>
+		</div>
+
+		<!-- Navigation start -->
+
+		<header class="header">
+
+			<nav class="navbar navbar-custom" role="navigation">
+
+				<div class="container">
+
+					<div class="navbar-header">
+						<a class="buynow hidden-lg hidden-sm" target="_self" href="/h5">立即购买</a>
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+						<a class="navbar-brand logo" href="/"><img src="/img/pc_img/logo.png" /></a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="custom-collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="/#home">首页</a>
+							</li>
+							<li>
+								<a href="/#prodInfo">产品设计</a>
+							</li>
+							<li>
+								<a href="/#functionInfo">功能介绍</a>
+							</li>
+							<li>
+								<a href="/#about">了解可点</a>
+							</li>
+							<li>
+								<a href="/#contact">联系我们</a>
+							</li>
+							<li class="active">
+								<a href="#faq">可点智能项圈FAQ</a>
+							</li>
+							<li>
+								<a href="downloads" target="_blank">
+									<i class="fa fa-mobile hidden-xs" aria-hidden="true"></i> App下载
+									<i class="fa fa-mobile hidden-lg hidden-sm" aria-hidden="true"></i></a>
+							</li>
+							<li class="hidden-xs">
+								<a class="buynow" target="_blank" href="javascript:;">
+									<i class="fa fa-shopping-cart" aria-hidden="true"></i> 扫码购买
+								</a>
+								<div class="buyqrcode">
+									<img src="/dist/website/images/buyqrcode.png" />
+									<p>
+										<i class="fa fa-weixin" aria-hidden="true"></i>扫一扫下单<br/> 仅支持微信
+									</p>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+
+				</div>
+				<!-- .container -->
+
+			</nav>
+
+		</header>
+
+		<!-- FAQ start -->
+		<section id="faq">
+			<div class="container">
+				<!--<div class="row">
+					<div class="pftitle">
+						<div class="wow fadeInUp">
+							<h2 class="pfblock-title">FAQ <small>可点智能项圈FAQ</small></h2>
+						</div>
+					</div>
+				</div>-->
+				<div class="row">
+					<div class="page">
+						<div class="ptitle">可点智能项圈FAQs</div>
+						<h3><span class="iconQ">Q</span>充电状态中，项圈红灯不闪烁。</h3>
+						<p><span class="iconA">A</span>有两种情况会出现项圈在插线充电情况下不亮灯：（1）已经充满电，红灯熄灭（2）设备电池耗尽，需要插线充电3至5分钟后红灯闪烁。</p>
+						<br />
+						<h3><span class="iconQ">Q</span>项圈充完电后却无法开机。</h3>
+						<p><span class="iconA">A</span>需要用力按电源键3-5秒后松开，几秒后亮白灯表示开机成功，等待白灯熄灭后在App上点击连接即能使用项圈。</p>
+						<br />
+						<h3><span class="iconQ">Q</span>按电源键后，项圈亮黄灯</h3>
+						<p><span class="iconA">A</span>点按电源键，圆环处无亮灯表示设备处于关机状态；亮绿灯5秒，表示设备处于工作状态；亮黄灯5秒，表示设备处于工作状态且电量不足30%；点按键时长超过3秒会误关机同时黄灯闪烁三次。</p>
+						<br />
+						<h3><span class="iconQ">Q</span>项圈充满电需要多长时间。</h3>
+						<p><span class="iconA">A</span>通常情况下，充电2-3小时即可将设备电池充满。</p>
+						<br />
+						<h3><span class="iconQ">Q</span>项圈处于开机状态，有时候会断开连接。</h3>
+						<p><span class="iconA">A</span>由于我们的项圈通过GSM进行数据交换，因此项圈的通信会受到移动网络信号的影响，当在移动信号不好的地方（例如地下室、电梯、山区等）使用时，会发生项圈断开连接，当回到移动信号较好的地方，项圈会自动重新连接。</p>
+						<br />
+						<h3><span class="iconQ">Q</span>使用查找狗的位置时，发现定位会有偏差。</h3>
+						<p><span class="iconA">A</span>在查找狗位置的模式下，可以点击刷新按钮，刷新实时位置。当在室内使用时，项圈是LBS（基站定位）模式，误差会根据您周围的基站数量而不同，定位精度最终取决于当地基站的密度，误差范围：100-1000米；当在户外使用时，您可以点击刷新按钮，刷新实时位置，GPS的定位的误差范围在5-10米。之所以仍然保留基站定位是因为使用GPS定位的前提是户外，并且需要定位搜索时间，考虑走失后主人着急的心情，我们在查找狗的模式下，只要点击刷新按钮，任何场所与地点都会快速出给一个基站定位的大致范围。此时如果狗狗所在方位是户外，稍候GPS定位成功后会自动刷新显示准确的GPS位置。定位后点击刷新按钮，一段时间内可以持续获得实时、准确的GPS定位信息。</p>
+						<br />
+						<h3><span class="iconQ">Q</span>一年的免费流量用光之后怎么办</h3>
+						<p><span class="iconA">A</span>在可点积分商城，将会推出SIM卡流量兑换。积分可通过完成遛狗或者日常任务获得。如果积分不足，可在App内购买。</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- 产品介绍 end -->
+
+		<!-- Footer start -->
+
+		<footer id="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-sm-12">
+
+						<!--<ul class="social-links">
+							<li>
+								<a href="index.html#" class="wow fadeInUp"><i class="fa fa-facebook"></i></a>
+							</li>
+							<li>
+								<a href="index.html#" class="wow fadeInUp" data-wow-delay=".1s"><i class="fa fa-twitter"></i></a>
+							</li>
+							<li>
+								<a href="index.html#" class="wow fadeInUp" data-wow-delay=".2s"><i class="fa fa-google-plus"></i></a>
+							</li>
+							<li>
+								<a href="index.html#" class="wow fadeInUp" data-wow-delay=".4s"><i class="fa fa-pinterest"></i></a>
+							</li>
+							<li>
+								<a href="index.html#" class="wow fadeInUp" data-wow-delay=".5s"><i class="fa fa-envelope"></i></a>
+							</li>
+						</ul>-->
+
+						<p class="heart">
+							<span class="font-yellow"><i class="fa fa-clock-o"></i> 24小时客服电话</span><br/>
+							<a class="hotphone" href="tel:4007759206">400-775-9206</a><br/> 周一至周五 9:00-17:00
+						</p>
+						<div class="pfblock-line"></div>
+						<p class="copyright">
+							沪ICP备16015040号-2 上海市徐汇区虹梅路2071号二号楼311室<br/> Copyright © 2016-$nowYear, HALOKIT.CN, All Rights Reserved
+						</p>
+
+					</div>
+
+				</div>
+				<!-- .row -->
+			</div>
+			<!-- .container -->
+		</footer>
+
+		<!-- Footer end -->
+
+		<!-- Scroll to top -->
+
+		<!--<div class="scroll-up">
+			<a href="#home"><i class="fa fa-angle-up"></i></a>
+		</div>-->
+
+		<!-- Scroll to top end-->
+
+		<!-- Javascript files -->
+
+		<script src="/dist/website/js/jquery-1.11.1.min.js"></script>
+		<script src="/dist/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/dist/website/js/jquery.parallax-1.1.3.js"></script>
+		<!--<script src="/dist/website/js/imagesloaded.pkgd.js"></script>-->
+		<script src="/dist/website/js/jquery.sticky.js"></script>
+		<!--<script src="/dist/website/js/smoothscroll.js"></script>-->
+		<script src="/dist/website/js/wow.min.js"></script>
+		<!--<script src="/dist/website/js/jquery.easypiechart.js"></script>-->
+		<script src="/dist/website/js/waypoints.min.js"></script>
+		<script src="/dist/website/js/jquery.cbpQTRotator.js"></script>
+		<!--<script src="/dist/website/js/video.js"></script>-->
+		<script src="/dist/website/js/custom.js"></script>
+		<script>
+			"use strict";
+			$(document).ready(function() {
+				//				
+				var buyqrcode = $('header .buyqrcode');
+				$('header .buynow').hover(function() {
+					buyqrcode.animate({
+						'opacity': 1
+					}, 300);
+				}, function() {
+					buyqrcode.animate({
+						'opacity': 0
+					}, 300);
+				});
+			});
+		</script>
+		#parse("./common/analytics.html")
+	</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<!--<link href="//apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />-->
+		<!-- 公共加载css end-->
+		<link href="/dist/css/settled.css" rel="stylesheet">
+		<link href="/dist/css/adapter.css" rel="stylesheet">
+		<title>核销</title>
+		<style>
+			.mgt20 {
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body class="apply">
+		<div class="mui-content">
+			<div id="logo">
+				<img src="/img/pc_img/logo.png" />
+			</div>
+			<ul class="mui-table-view mgt20">
+				<li class="mui-table-view-cell">
+					<a>当前时间<span class="mui-pull-right fm-arial">$!data.nowtime</span></a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>代金券号<span class="mui-pull-right fm-arial">$!data.cn</span></a>
+				</li>
+			</ul>
+			<ul class="mui-table-view mgt20">
+				<li class="mui-table-view-cell mui-text-center fm-arial"  style="color:#if($!data.msg=='核销成功') springgreen #else indianred #end;">
+					$!data.msg
+				</li>
+			</ul>
+			<ul class="mui-table-view mgt20">
+				<li class="mui-table-view-cell mui-text-left">
+					<a>代金券名<span class="mui-pull-right fm-arial">$!data.title</span></a>
+				</li>
+				<li class="mui-table-view-cell mui-text-left">
+					<a>总数量<span class="mui-pull-right fm-arial">$!data.totalnum</span></a>
+				</li>
+				<li class="mui-table-view-cell mui-text-left">
+					<a>领取数量<span class="mui-pull-right fm-arial">$!data.conversionnum</span></a>
+				</li>
+				<li class="mui-table-view-cell mui-text-left">
+					<a>核销数量<span class="mui-pull-right fm-arial">$!data.closenum</span></a>
+				</li>
+				<li class="mui-table-view-cell mui-text-left">
+					<a>过期数量<span class="mui-pull-right fm-arial">$!data.overduenum</span></a>
+				</li>
+			</ul>
+
+		</div>
+
+		<script src="/dist/mui/js/mui.min.js"></script>
+		<script>
+			mui.init();
+			var flag = $!data.refurbish;
+			if(flag) {
+				mui.toast('非法操作');
+				setTimeout(function() {
+					window.location.href = window.location.href;
+				}, 2000)
+			}
+		</script>
+	</body>
+
+</html>

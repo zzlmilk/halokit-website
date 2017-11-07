@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<title>出错了</title>
+		<style>
+			h1 {
+				font-size: 3em;
+			}
+			
+			h3 {
+				font-size: 2em;
+			}
+			
+			h1,
+			h3 {
+				font-family: "微软雅黑", "helvetica", "arial", "sans-serif";
+				font-weight: lighter;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1 class="tac pt20">系统异常：</h1>
+		<h3>
+    	$!{message}…（3秒后转到 <a href="/">首页</a> ）
+    </h3>
+		<script>
+			var locationUrl = "$!location";
+			if(!locationUrl || locationUrl.replace(/ /g, '') == '' || locationUrl == 'undefined' || typeof(locationUrl) == undefined) {
+				locationUrl = '/';
+			}
+			setTimeout(function() {
+				location.href = locationUrl;
+			}, 3000);
+		</script>
+	</body>
+
+</html>

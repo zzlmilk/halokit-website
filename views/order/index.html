@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <title>Halo kit</title>
+    <link rel="icon" sizes="any" href="/img/pc_img/icon.png" />
+    <link rel="stylesheet" href="/dist/css/pc_css/all.css" />
+    <link rel="stylesheet" href="/dist/css/pc_css/order.css" />
+    <link rel="stylesheet" type="text/css" href="/dist/css/pc_css/sprite.css">
+</head>
+
+<body>
+    #parse ('./common/header.html')
+    <main class="main-wrap">
+        <section class="order-list pr">
+            <div class="for-wid bc">
+                <div class="my-order mt20 pl10 fs18">我的订单</div>
+                <div class="nav-list h60">
+                    <ul>
+                        <li class="all-efforder fl pl10 pt20 pb20 pr20 fs16"><a href="#">全部有效订单</a></li>
+                        <li class="fl pl10 pt20 pb20 pr20 fs16"><a href="#">待支付</a></li>
+                        <li class="fl pl10 pt20 pb20 pr20 fs16"><a href="#">待收货</a></li>
+                    </ul>
+                </div>
+                #macro(status $val)
+                    #if($!val == 'CUSTCONFIRM') 待付费 #elseif($!val == 'CUSTPAY') 待发货#elseif($!val == 'SHOPDELIVER')已经发货
+                    #elseif($!val == 'CUSTRECEIVE')
+                    交易完成
+                    #elseif($!val == 'REFUNDSTART')
+                    退款成功
+                    #end
+                #end
+                #macro(btn $val $id)
+                    #if($!val == 'CUSTCONFIRM') <a class="pay-btn pay tac db" href="javascript:" data-ordersn="$!item.ordersn">去付费</a> #elseif($!val == 'CUSTPAY') <a class="pay-btn send-btn tac db" data-id="$!id" >退款</a> 
+                    #elseif($!val == 'SHOPDELIVER') <a class="pay-btn sure-btn tac db" data-id="$!id" >确认收货</a> #end
+                #end
+                #foreach($item in $data.list)
+                    <div class="have-goods mb20 pr">
+                        <p class="mt15 ml30 fs16 pr">已收货</p>
+                        <div class="goods-info mr20 ml20 c">
+                            <div class="order-info fl pl10 pt15 pb15 pr">
+                                <span>$!item.createdate</span>
+                                <i class="nav-line dlb vam"></i>
+                                <span>$!item.recipientname</span>
+                                <i class="nav-line dlb vam"></i>
+                                <span>订单号：$!item.ordersn</span>
+                                <i class="nav-line dlb vam"></i>
+                                <span>在线支付</span>
+                            </div>
+                            <div class="fr pr30 pt15 pb15">
+                                <span>订单金额：<span class="fs20">$!item.paymentamount</span>元</span>
+                            </div>
+                        </div>
+                        <form class="pl20 mt20">
+                            <table class="list-table">
+                                <tbody>
+                                    #foreach($commodity in $!item.commodities)
+                                        <tr>
+                                            <td><img src="$!commodity.imagepath" style="height: 80px;" /></td>
+                                            <td>
+                                                <div class="lh2 fs16">
+                                                    <span class="db">$!commodity.size.name #name($!commodity.color.name)</span>
+                                                    <span class="db">$!commodity.name</span>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td>x $!commodity.count</td>
+                                            <td><span class="refund-status fs12">已退款</span></td>
+                                            <td></td>
+                                            <td><a class="apply-sales fs16" href="#">申请售后</a></td>
+                                        </tr>
+                                    #end
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                #end
+                
+            </div>
+        </section>
+    </main>
+    #parse ('./common/footer.html')
+</body>
+
+</html>

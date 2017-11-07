@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="renderer" content="webkit" />
+		<!--防止外嵌-->
+		<meta http-equiv="Window-target" content="_top" />
+		<!-- 全部设备按照750缩放 -->
+		<meta name="viewport" content="width=750,  user-scalable=no" />
+		<!-- 防止ios将数字识别为手机号码，捣乱布局，样式 -->
+		<meta name="format-detection" content="telephone=no" />
+		<title>Halo kit</title>
+		<link rel="stylesheet" href="/css/animate.css" />
+		<link rel="stylesheet" href="/css/show.css" />
+	</head>
+
+	<body>
+		<div id="loading">
+			<img src="/img/icon.png" />
+		</div>
+		<ul id="bar" class="bar" style="right: 0;">
+			<li>
+				<a id="linkProdInfo" class="theme-color" href="javascript:;">产品<br/>介绍</a>
+			</li>
+			<li>
+				<a id="linkContact" class="theme-color" href="javascript:;">联系<br/>我们</a>
+			</li>
+		</ul>
+		<div class="slider-box p0" style="height: 620px;">
+			<img src="/img/toplogo.png" />
+			<img src="/img/know.png" class="animated fadeIn" style="width: 100%;" />
+		</div>
+		<div id="resize-word" class="word animated fadeInanimated fadeIn">
+			<div class="cc z0 item ">
+				<p class="en-text en">HaloKit可点</p>
+				<p>HaloKit可点 隶属于派慕（上海）信息科技有限公司旗下精英品牌。全心专注于消费者科技及宠物可穿戴设备。秉承健康、时尚、快乐的企业基因，依托数据科学及前瞻性研发、制造实力，致力于构建硬件与软件整合伴生平台，令宠物与主人之间，互动生活智能同步，妙趣横生。</p>
+				<p>HaloKit 通过丰富产品线设置，多维覆盖：宠物实时定位追踪、宠物体质健康及人宠亲密互动、喂食辅助建议、炫彩发光夜间警示等日常智能化宠物生活所需，全面呵护宠物身心安全。</p>
+				<p>HaloKit 在坚实做强功能的同时，更加强调产品的视觉和使用体验。前卫的设计语言及高科技、高规格材料的使用，不仅使得爱宠倍受功能保障，更能带来前所未有的健康、时尚和舒适礼遇。</p>
+				<p>HaloKit可点 总部位于上海。前沿之都，无限可能。宠物与人，『无线』亲近。</p>
+				<p>Halo即是光芒，是可以汇成圆环的光芒，光芒抚慰心灵；圆环温柔环抱。</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="/js/loader.js"></script>
+		<script>
+			var prefix = "/";
+			new loader([
+				prefix + "img/toplogo.png",
+				prefix + "img/know.png"
+			], function(e) {
+
+				// 移除加载动画
+				document.body.removeChild(document.getElementById("loading"));
+
+				//跳转按钮
+				document.getElementById('linkProdInfo').addEventListener('touchend', function(e) {
+					location.href = '/h5/'
+				})
+
+				document.getElementById('linkContact').addEventListener('touchend', function(e) {
+					location.href = "/h5/about/contact";
+				})
+			}).imgLoader();
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<!--#parse("./common/cssfont.html")-->
+		<!-- 公共加载css end-->
+		<link href="/dist/mui/css/mui.picker.min.css" rel="stylesheet">
+		<link href="/dist/mui/css/mui.poppicker.min.css" rel="stylesheet" />
+		<link href="/dist/css/sos.css" rel="stylesheet">
+		<!--<link href="/dist/css/adapter.css" rel="stylesheet">-->
+		<title>修改</title>
+	</head>
+
+	<body id="publish">
+		<header id="header" class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">编辑</h1>
+			<button class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>返回
+			</button>
+		</header>
+		<div class="mui-content">
+			<div class="mui-input-row">
+				<textarea id="title" rows="1" class="mui-input" placeholder="标题（15字内）">$!data.title</textarea>
+			</div>
+			<form id='form' class="mui-input-group">
+				<!--<div class="mui-input-row">
+					<label>宠物昵称</label>
+					<input id='petNickname' type="text" value="$!data.petname" class="mui-input-clear mui-input" placeholder="请输入宠物昵称">
+				</div>-->
+				<div class="mui-input-row">
+					<label>丢失时间</label>
+					<div id="lostTime" class="copyinput fm-arial" placeholder="请选择丢失时间" data-options='{"type":"date","value":"$!selectData","endDate":"$!selectData"}'>
+						$!selectData
+					</div>
+					<span class="mui-icon mui-icon-arrowdown"></span>
+				</div>
+				<div class="mui-input-row">
+					<label>丢失地区</label>
+					<div id="lostLocation" class="copyinput fm-arial">
+						$!data.lostplace
+					</div>
+					<span class="mui-icon mui-icon-arrowdown"></span>
+				</div>
+				<div class="mui-input-row">
+					<label>详细地址</label>
+					<textarea id="lostAddr" rows="1" class="mui-input" placeholder="请输入丢失的详细地址">$!data.address</textarea>
+				</div>
+				<div class="mui-input-row">
+					<label>手机号</label>
+					<textarea id="phone" rows="1" class="mui-input fm-arial" placeholder="请输入手机号码">$!data.phone</textarea>
+				</div>
+				<div class="mui-input-row">
+					<label>微信号</label>
+					<textarea id="wechat" rows="1" class="mui-input fm-arial" placeholder="请输入微信号（可选）">$!data.wechat</textarea>
+				</div>
+				<div class="mui-input-row">
+					<label>QQ号</label>
+					<textarea id="qq" rows="1" class="mui-input fm-arial" placeholder="请输入QQ号（可选）">$!data.qq</textarea>
+				</div>
+			</form>
+			<div class="mui-input-row">
+				<textarea id="describe" rows="3" placeholder="详情描述...">$!data.message</textarea>
+			</div>
+			<div class="mui-input-row">
+				<div id="image-list" class="image-list">
+					<div class="image-item space">
+						<div class="image-close">X</div>
+						<div class="image-up"></div>
+					</div>
+					#foreach($_item in $!data.halokitsosimages)
+					<div class="image-item hasimage" data-imgpath="$_item">
+						<div class="image-close fm-arial" onclick="deleteImg(this)">x</div>
+						<div class="file">
+							<img src="$_item">
+						</div>
+					</div>
+					#end
+				</div>
+				<input id='uploadImages' type="hidden" />
+			</div>
+			<div class="mui-content-padded">
+				<input type="file" accept="image/*" id="uploadImage" capture="camera" class="mui-hidden" onchange="selectFileImage(this);" />
+				<button id='btnSubit' class="mui-btn mui-btn-block mui-btn-success">编辑</button>
+			</div>
+
+		</div>
+		<script src="/dist/mui/js/mui.min.js"></script>
+		<script src="/dist/mui/js/mui.picker.min.js"></script>
+		<script src="/dist/mui/js/mui.poppicker.min.js"></script>
+		<script src="/dist/js/uploadPicture/mobileBUGFix.mini.js"></script>
+		<script src="/dist/js/uploadPicture/exif.js"></script>
+		<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src='/dist/js/sos_share.js'></script>
+		<script src="/dist/js/sos_edit.js"></script>
+		<script>
+			var sosid = '$!data.id'; 
+		</script>
+	</body>
+
+</html>

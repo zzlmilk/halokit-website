@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<!--<link href="/dist/mui/css/mui.picker.min.css" rel="stylesheet">-->
+		#parse("./common/cssfont.html")
+		<!-- 公共加载css end-->
+		<link href="/dist/css/settled.css" rel="stylesheet">
+		<!--<link href="/dist/css/adapter.css" rel="stylesheet">-->
+		<title>商户平台</title>
+	</head>
+
+	<body class="platform">
+		<div class="mui-content">
+			<!--签到 begin-->
+			<div id="tabbar-signin" class="mui-slider mui-fullscreen">
+				<div class="dashboard bg-linear-blue mui-row">
+					<div class="mui-col-xs-3 left content">
+						<span class="number fm-arial">$!signinList.totalcount</span>
+						<span class="title">今日签到</span>
+					</div>
+					<div id="btn-Signin" class="mui-col-xs-6 center">
+						<div class="bg"></div>
+						<div class="content">
+							<span class="mui-icon mui-icon-checkmarkempty icon" aria-hidden="true"></span>
+							<span class="title">一键确认</span>
+						</div>
+					</div>
+					<div class="mui-col-xs-3 right content">
+						<span class="number fm-arial">$!signinList.data.length</span>
+						<span class="title">未确认</span>
+					</div>
+				</div>
+				<div class="list mui-row">
+					<div class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<ul class="mui-table-view">
+								#foreach($data in $!signinList.data)
+								<li class="mui-table-view-cell mui-media">
+									<a href="javascript:;">
+										<img class="mui-media-object mui-pull-left" src="$!data.imagePath">
+										<div class="mui-media-body">
+											$!data.petnicename
+											<p class="mui-ellipsis fm-arial">$!data.createDate</p>
+										</div>
+										<button class="mui-btn mui-btn-primary btn-Signin" idx="$!data.id" onclick="signin(this);">确认</button>
+									</a>
+								</li>
+								#end 
+								#if(!$signinList || $signinList.data.length<=0) 
+								<li class="mui-table-view-cell mui-media">
+									<a href="javascript:;" class="mui-text-center">
+										暂无新的签到
+									</a>
+								</li>
+								#end
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!--签到 end-->
+		</div>
+	</body>
+	<script src="/dist/mui/js/mui.min.js"></script>
+	<!--<script src="/dist/mui/js/mui.view.js"></script>-->
+	<script src="/dist/mui/js/mui.pullToRefresh.min.js"></script>
+	<script src="/dist/mui/js/mui.pullToRefresh.material.min.js"></script>
+	<!--<script src="/dist/mui/js/mui.picker.min.js"></script>-->
+	<script src="/dist/js/merchantPlatformSignin.js"></script>
+
+</html>

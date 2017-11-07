@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<!--<link href="//apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />-->
+		<!-- 公共加载css end-->
+		<link href="/dist/css/settled.css" rel="stylesheet">
+		<link href="/dist/css/adapter.css" rel="stylesheet">
+		<title>商户核销平台登录</title>
+	</head>
+
+	<body class="apply">
+		<div class="mui-content">
+			<div id="logo">
+				<img src="/img/pc_img/logo.png" />
+			</div>
+			<form id='form' class="mui-input-group">
+				<div class="mui-input-row">
+					<label>账号</label>
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入核销账号">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入登录密码">
+				</div>
+				<!--<div class="mui-input-row">
+					<label>验证码</label>
+					<input id='code' type="number" class="mui-input-clear mui-input" placeholder="请输入验证码">
+				</div>-->
+				<!--<button id="btnGetVcode" type="button" class="mui-btn mui-btn-grey" data-loading-text="请等待">获取验证码</button>-->
+			</form>
+			<!--<div class="mui-content-padded">
+				登录既同意
+				<a href="#">《可点商家核销协议》</a>
+			</div>-->
+			<div class="mui-content-padded">
+				<button id='btnBinding' class="mui-btn mui-btn-block mui-btn-success">登录</button>
+			</div>
+
+		</div>
+
+		<script src="/dist/mui/js/mui.min.js"></script>
+		<script>
+			var identifyingcode = 0;
+			mui.init();
+
+			var input_account = mui('#account'),
+				input_password = mui('#password');
+				input_code = mui('#code');
+			mui(document.body).on('tap', '#btnBinding', function(e) {
+				var btn = mui(this);
+				var account = input_account[0].value,
+					password = input_password[0].value;
+//				    codeNumber = input_code[0].value;
+				if(account.replace(' ','') == '') {
+					mui.toast('请输入账号');
+					return;
+				}
+				if(password.replace(' ','') == '') {
+					mui.toast('请输入密码');
+					return;
+				}
+				//验证码判断
+//				if(codeNumber == '') {
+//					mui.toast('请输入验证码');
+//					return;
+//				}
+//				if(codeNumber != identifyingcode) {
+//					mui.toast('验证码输入错误，请重新输入');
+//					return;
+//				}
+				btn.button('loading');
+				//绑定
+				mui.post('/h5/approvedSales/login.do', {
+					account: account,
+					password:password
+				}, function(data) {
+					btn.button('reset');
+					console.log(data);
+					if(data.status) {
+						btn[0].classList.add("mui-disabled");
+						mui.toast('登录成功');
+						setTimeout(function(){
+							window.location.href = window.location.href+'?r='+Math.ceil(Math.random()*100000000);
+						},1000)
+					} else {
+						mui.toast('登录失败，请稍后重试');
+					}
+				});
+			});
+
+//			mui(document.body).on('tap', '#btnGetVcode', function(e) {
+//				var account = input_account[0].value;
+//				//手机号码判断
+//				if(account == '') {
+//					mui.toast('请输入账号');
+//					return;
+//				}
+//				//发送短消息
+//				mui.getJSON('/h5/authcode/'+phoneNumber, function(data) {
+//					console.log(['验证码',data]);
+//					if(data.status) {
+//						identifyingcode = data.data.data;
+//						
+//					} else {
+//						mui.toast('操作失败，请稍后重试');
+//					}
+//				});
+//				var timeout = 60;
+//				mui(this).button('loading');
+//				SmsTimeOut(timeout);
+//			});
+//
+//			function SmsTimeOut(timeout) {
+//				mui('#btnGetVcode span')[1].innerText = timeout + " 秒";
+//				setTimeout(function() {
+//					mui('#btnGetVcode span')[1].innerText = timeout + " 秒";
+//					timeout--;
+//					if(timeout > 0) {
+//						SmsTimeOut(timeout);
+//					} else {
+//						mui('#btnGetVcode').button('reset');
+//					}
+//				}.bind(this), 1000);
+//			}
+		</script>
+	</body>
+
+</html>

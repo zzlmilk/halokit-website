@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>可点</title>
+    <link rel="stylesheet" href="/dist/css/base.css" />
+    <link rel="stylesheet" href="/dist/css/wechoose.css" />
+    <link rel="stylesheet" href="/dist/css/prompt.css">
+</head>
+
+<body>
+    <section class="choose-all" id="selection">
+        <div class="choose-top ofh fs0">
+            <div class="h1 ofh">
+                <ul class="ring-con h1"  id="ringCon">
+                    <li class="PINK h1 pr fl"><img class="middle" src="/img/pink.png"></li>
+                    <li class="BLACK h1 pr fl"><img class="middle" src="/img/black.png"></li>
+                    <li class="CAFE h1 pr fl"><img class="middle" src="/img/cafe.png"></li>
+                    <li class="WHITE h1 pr fl"><img class="middle" src="/img/white.png"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="choose-bottom c" style="overflow: hidden;">
+            <div class="pro-title pt10 pb5">
+                <span class="pro-name dlb">$!data.name</span>
+                #if($!type)
+                <a class="pro-details dlb ml10 pr" href="/h5?memberid=$!memberid&shopcode=$!shopcode&type=$!type">产品详情</a>
+                #else
+                <a class="pro-details dlb ml10 pr" href="/h5">产品详情</a>
+                #end
+            </div>
+            <form>
+                <table class="ch-size-color">
+                    <tbody>
+                        <tr>
+                            <td>尺寸<span class="for-color dlb">size</span></td>
+                            <td>
+                                #foreach($item in $data.size)
+                                <label class="choose-size" data-id="$!item.id">
+                                    $!item.name
+                                </label>
+                                #end
+                                <!-- <label class="choose-size">
+                                L
+                            	</label> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>颜色<span class="for-color dlb">color</span></td>
+                            #macro(size $val) #if($val == 'S') 可调节范围30-39cm #elseif($val == 'M') 可调节范围40-52cm #elseif($val == 'L')可调节范围48-60cm #end #end
+
+                            #macro(name $val) #if($val == 'CAFE') 马鞍棕 #elseif($val == 'PINK') 桃子粉 #elseif($val=='BLACK') 绅士黒 #elseif($val == "WHITE") 秋麒麟 #end #end
+                            ## 第一层尺寸
+
+                            #foreach($item in $data.size)
+                            <td id="$item.id" class="color-board #if($!item.name != 'M')none#end">
+                                <p class="size-tip">#size($!item.name)</p>
+                                #macro(color $val) #if($val == 'CAFE') cafe #elseif($val == 'PINK') pink #elseif($val=='BLACK') black #elseif($val == "WHITE") white #end #end
+                                #foreach($color in $item.color)
+                                <label class="block #color($!color.name) #if(!$!color.ismarketable) disabled #end" data-color="$!{color.name}" data-price="$!color.price" data-id="$!color.id">
+                                    <span class="choose-color"></span> #name($!color.name)
+                                </label>
+                                #end
+                            </td>
+                            #end
+                        </tr>
+                        <tr>
+                            <td>价格<span class="for-color dlb">price</span></td>
+                            <td class="tip-price"><span></span> 元</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--<div class="add-cart"><a class="db tac" href="javascript:void(0);" id="add-to-cart">加入购物车</a></div>-->
+                <div class="add-cart" style="margin-top: 1%;"><a class="db tac" href="javascript:void(0);" id="add-to-cart">立即购买</a></div>
+                
+            </form>
+        </div>
+    </section>
+    <template name="confir_dialog">
+        <div class="wrap">
+            <div class="title-details tac">$*title</div>
+            <div class="prompt-info">$*content</div>
+            <div class="choose-btn c">
+                <button class="confirm-btn col">确认</button>
+            </div>
+        </div>
+    </template>
+    <script type="text/javascript">
+        var commodity_id = "$!data.commodityid",
+        	type = '$!type';
+    </script>
+    <script type="text/javascript" src="/js/loader.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+	#parse("./common/analytics.html")
+</body>
+
+</html>

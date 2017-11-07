@@ -1,0 +1,384 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transform-origin: center center;
+}
+
+body {
+    font-family: "微软雅黑", "helvetica", "arial", "sans-serif";
+    font-size: 24px;
+    font-weight: lighter;
+    color: #333;
+}
+
+img{
+	display: block;
+}
+
+small{
+	font-size: 85%;
+}
+
+.sceen {
+    width: 750px;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
+}
+
+.z {
+    z-index: -1;
+}
+
+.z0 {
+    z-index: 0;
+}
+
+.z1 {
+    z-index: 1;
+}
+
+.z2 {
+    z-index: 2;
+}
+
+.z-max {
+    z-index: 9999;
+}
+
+.p0{
+	padding: 0 !important;
+}
+
+.mt10{
+	margin-top: 10px !important;
+}
+
+.mt15{
+	margin-top: 15px !important;
+}
+
+.mt20{
+	margin-top: 20px !important;
+}
+
+.mt25{
+	margin-top: 25px !important;
+}
+
+.mt30{
+	margin-top: 30px !important;
+}
+
+.mt40{
+	margin-top: 40px !important;
+}
+
+.mt50{
+	margin-top: 50px !important;
+}
+
+.lt0 {
+    left: 0;
+    top: 0;
+}
+
+
+.tc{
+	text-align: center;
+}
+
+.tl {
+    text-align: left;
+}
+
+.tr{
+	text-align: right;
+}
+
+.abs {
+    position: absolute;
+}
+
+.cc {
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    top: 50%;
+    left: 50%;
+}
+
+.cb {
+    position: absolute;
+    transform: translate3d(-50%, -100%, 0);
+    -webkit-transform: translate3d(-50%, -100%, 0);
+    top: 100%;
+    left: 50%;
+}
+
+.ct {
+    position: absolute;
+    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
+    top: 0;
+    left: 50%;
+}
+
+.repeat {
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.theme-rgba {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.filter {
+    filter: url(blur.svg#blur);
+    /* FireFox, Chrome, Opera */
+    -webkit-filter: blur(8px);
+    /* Chrome, Opera */
+    -moz-filter: blur(8px);
+    -ms-filter: blur(8px);
+    filter: blur(8px);
+    filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius=8, MakeShadow=false);
+    /* IE6~IE9 */
+    transition: transform 2s;
+    transform: translate3d(-50%, -50%, 0) scale(1.1);
+    -webkit-transform: translate3d(-50%, -50%, 0) scale(1.1);
+}
+
+.hide {
+    display: none;
+}
+
+.img-bg {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.slider-box {
+    padding: 0 10px;
+    width: 100%;
+    height: 900px;
+}
+
+.word {
+    height: 310px;
+    position: relative;
+}
+
+.word div {
+    width: 100%;
+    min-height: 310px;
+    max-height: 500px;
+    background-color: white;
+    padding: 35px;
+    padding-top: 0;
+}
+
+.word * {
+    font-weight: lighter;
+    font-size: 31px;
+    /*line-height: 80px;*/
+}
+
+.word p {
+    font-size: 24px;
+    /*line-height: 35px;*/
+    letter-spacing: 3px;
+}
+
+p.first-text {
+    font-size: 30px;
+}
+p.en-text {
+    font-weight: bold;
+    font-size: 44px !important;
+}
+p.en {
+    letter-spacing: 0;
+    word-break: break-all;
+}
+
+.radius-group {
+    position: absolute;
+    top: 400px;
+}
+
+.radius-group i {
+    display: block;
+    padding: 7px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, .4);
+    margin: 25px;
+}
+
+.radius-group i.now {
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.next {
+    top: auto;
+    bottom: -100px;
+    animation-duration: 3s;
+    -webkit-animation-duration: 3s;
+}
+
+.head {
+    top: 30px;
+    animation-delay: .5s;
+    -webkit-animation-delay: .5s;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.welcome {
+    animation-delay: .5s;
+    -webkit-animation-delay: .5s;
+}
+
+.ring {
+    right: 75px;
+    top: 580px;
+    animation-delay: .5s;
+    -webkit-animation-delay: .5s;
+}
+
+.phone {
+    right: 75px;
+    top: 550px;
+    animation-delay: .5s;
+    -webkit-animation-delay: .5s;
+}
+
+.line1 {
+    top: 450px;
+    right: 320px;
+    animation-delay: .2s;
+    -webkit-animation-delay: .2s;
+}
+
+.board {
+    top: 30px;
+    left: 45px;
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+}
+
+.ring1 {
+    top: 350px;
+    right: 120px;
+    animation-delay: .5s;
+    -webkit-animation-delay: .5s;
+}
+
+.ring2 {
+    top: 400px;
+    right: 265px;
+    animation-delay: .7s;
+    -webkit-animation-delay: .7s;
+}
+
+.ring3 {
+    top: 525px;
+    right: 365px;
+    animation-delay: .8s;
+    -webkit-animation-delay: .8s;
+}
+
+.ring4 {
+    top: 665px;
+    right: 410px;
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+}
+
+.rgba * {
+    background-color: rgba(0, 0, 0, .4) !important;
+}
+
+.rgba *.now {
+    background-color: rgba(0, 0, 0, .7) !important;
+}
+
+#loading{
+	background-color: rgba(0, 0, 0, 1);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	text-align: center;
+	line-height: 1200px;
+	font-size: 31px;
+	color: white;
+}
+
+#loading:after {content: "加载中，请稍后 . . .";position: absolute;top: 650px;display: inline-block;line-height: normal;width: 100%;left: 0;/* height: 50px; */}
+
+#btnDrawer{
+	position: fixed;
+	top: 960px;
+	right: 20px;
+	z-index: 99;
+	padding: 20px 40px;
+	display: inline-block;
+	background-color: #d7e06a;
+	color: white;
+	font-size: 36px;
+	text-decoration: none;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 2px 2px 3px #999;
+}
+
+
+.theme-color {
+    color: #bcc91c !important;
+}
+
+.bar {
+    overflow: auto;
+    padding: 10px;
+    margin: 10px 0;
+    display: block;
+    position: fixed;
+    z-index: 999;
+    right:0;
+    width: 40%;
+    background-color: rgba(255,255,252,0.7);
+   	border-radius: 20px;
+}
+
+.bar li:nth-child(1) {
+    border: none;
+}
+
+.bar li {
+    float: left;
+    border-left: 1px solid #d6d7d7;
+    padding: 20px 20px;
+    width: 50%;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 10px;
+}
+
+.bar li a, .bar li a:active {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}

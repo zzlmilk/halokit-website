@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <title>Halo kit</title>
+    <link rel="icon" sizes="any" href="/img/pc_img/icon.png" />
+    <link rel="stylesheet" href="/dist/css/pc_css/all.css" />
+    <link rel="stylesheet" href="/dist/css/pc_css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="/dist/css/pc_css/sprite.css">
+</head>
+
+<body>
+    #parse ('./common/header.html')
+    <main class="main-wrap">
+        <section class="cart-info pr">
+            <div class="for-wid bc mt30">
+                <div class="titl-cart mb15 pt20">
+                    <i class="i-titl-cart"></i>
+                    <span class="dlb fs18">我的购物车</span>
+                </div>
+                <form class="dlb mt5">
+                    <table class="list-tab">
+                        <thead class="head-tab tac">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>商品名字</td>
+                                <td>单价</td>
+                                <td>数量</td>
+                                <td>小计</td>
+                                <td>删除</td>
+                            </tr>
+                        </thead>
+                        <tbody class="body-tab tac">
+                            <tr>
+                                <td>
+                                    <i class="check i-check"></i>
+                                </td>
+                                <td>
+                                    <img class="choose-ring" src="/img/pc_img/ring_gold.png" />
+                                </td>
+                                <td>
+                                    <div class="lh2 fs16">
+                                        <span class="db">Halo kit&emsp;金L</span>
+                                        <span class="db">宠物智能项圈</span>
+                                    </div>
+                                </td>
+                                <td>￥598</td>
+                                <td class="change-count">
+                                    <i class="i-num-down mr5"></i>
+                                    <span>1</span>
+                                    <i class="i-num-up ml5"></i>
+                                </td>
+                                <td>1000.00元</td>
+                                <td class="close-list">
+                                    <i class="i-close"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="check"></i>
+                                </td>
+                                <td>
+                                    <img class="choose-ring" src="/img/pc_img/ring_pink.png" />
+                                </td>
+                                <td>
+                                    <div class="lh2 fs16">
+                                        <span class="db">Halo kit&emsp;玫M</span>
+                                        <span class="db">宠物智能项圈</span>
+                                    </div>
+                                </td>
+                                <td>￥598</td>
+                                <td class="change-count">
+                                    <i class="i-num-down mr5"></i>
+                                    <span>1</span>
+                                    <i class="i-num-up ml5"></i>
+                                </td>
+                                <td>598.00元</td>
+                                <td class="close-list">
+                                    <i class="i-close"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="check"></i>
+                                </td>
+                                <td>
+                                    <img class="choose-ring" src="/img/pc_img/ring_white.png" />
+                                </td>
+                                <td>
+                                    <div class="lh2 fs16">
+                                        <span class="db">Halo kit&emsp;白M</span>
+                                        <span class="db">宠物智能项圈</span>
+                                    </div>
+                                </td>
+                                <td>￥598</td>
+                                <td class="change-count">
+                                    <i class="i-num-down mr5"></i>
+                                    <span>1</span>
+                                    <i class="i-num-up ml5"></i>
+                                </td>
+                                <td>598.00元</td>
+                                <td class="close-list">
+                                    <i class="i-close"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <div class="btm-content pl20 pt20 pr">
+                    <div class="btm-content-left fl h-center">
+                        <a href="#">继续购物</a>
+                        <i class="nav-line dlb vam"></i>
+                        <span>共<span class="all-pro">4</span>件商品，已选择<span class="choosed-pro">3</span>件</span>
+                    </div>
+                    <div class="btm-content-right fr">
+                        <span>合计 (不含运费) : <span class="total-amount fs22">1598.00</span>元</span>
+                        <a class="dlb tac ml20 w100" href="#">去结算</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    #parse ('./common/footer.html')
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>个人中心</title>
+    <link rel="stylesheet" href="/dist/css/base.css" />
+    <link rel="stylesheet" href="/dist/css/personal.css" />
+    <link rel="stylesheet" type="text/css" href="/dist/css/prompt.css">
+</head>
+
+<body>
+    <div id="personal" class="personal-wrap pr">
+        <div class="user-wechat pr">
+            <figure class="img-name pa">
+                <img src="$!member.headimgurl" class="head-img dlb mr5">
+                <!-- <span class="head-img dlb mr5"></span> -->
+                <span class="wechat-name dlb">$!member.nickname</span>
+            </figure>
+        </div>
+        <div class="pro-status pr c">
+            <ul class="status-list">
+                <!-- CUSTCONFIRM:客户已确认(代付款) CUSTPAY:客户已支付(代发货) SHOPDELIVER:店铺已发货(待收货) CUSTRECEIVE:客户已收货(已完成) -->
+                <li class="#if($!status != 'CUSTCONFIRM') choose-status #end"><a class="db" href="/h5/personal?status=CUSTCONFIRM">待付款 </a></li>
+                <li class="#if($!status != 'CUSTPAY') choose-status #end"><a class="db" href="/h5/personal?status=CUSTPAY">待发货 </a></li>
+                <li class="#if($!status != 'SHOPDELIVER') choose-status #end"><a class="db" href="/h5/personal?status=SHOPDELIVER">待收货 </a></li>
+                <li class="#if($!status != 'CUSTRECEIVE') choose-status #end"><a class="db" href="/h5/personal?status=CUSTRECEIVE">已完成 </a></li>
+            </ul>
+        </div>
+        <div class="order-details">
+
+        #if(!$!data.list)
+            <div class="err-word">当前状态无订单，去 <a class="link" href="/h5/bf22e28c896a4a75b0cdc2fa5d450c01">商品页面</a> 购买</div>
+        #end
+        #macro(name $val) #if($val == 'CAFE') 咖啡色 #elseif($val == 'PINK') 亮粉色 #elseif($val=='BLACK') 深空黑 #elseif($val == "WHITE") 古董白 #end #end
+        #foreach($item in $data.list)
+            <div class="order-content">
+                <div class="order-numder">订单编号：$!item.ordersn</div>
+                <div class="pro-params mb10 c">
+                    #foreach($commodity in $!item.commodities)
+                        <ul>
+                            <li><img src="$!commodity.imagepath" style="height:100%" /></li>
+                            <li>
+                                <div class="order-params">
+                                    <div class="mb5">$!commodity.name</div>
+                                    <div>$!commodity.size.name #name($!commodity.color.name)</div>
+                                </div>
+                            </li>
+                            <li class="c"><div class="for-totalnum pr fr">x$!commodity.count</div></li>
+                        </ul>
+                    #end
+                </div>
+                #macro(status $val)
+                    #if($!val == 'CUSTCONFIRM') 待付费 #elseif($!val == 'CUSTPAY') 待发货#elseif($!val == 'SHOPDELIVER')已经发货
+                    #elseif($!val == 'CUSTRECEIVE')
+                    交易完成
+                    #elseif($!val == 'REFUNDSTART')
+                    退款成功
+                    #end
+                #end
+                #macro(btn $val $id)
+                    #if($!val == 'CUSTCONFIRM') <a class="pay-btn pay tac db" href="javascript:" data-ordersn="$!item.ordersn">去付费</a> #elseif($!val == 'CUSTPAY') <a class="pay-btn send-btn tac db" data-id="$!id" >退款</a> 
+                    #elseif($!val == 'SHOPDELIVER') <a class="pay-btn sure-btn tac db" data-id="$!id" >确认收货</a> #end
+                #end
+                <div class="status-pay c">
+                    <div class="status-need dlb fl">#status($!item.orderstatus)</div>
+                    <div class="dlb fr">共计<span>$!item.productcount</span>件 总价：<span class="need-pay">￥$!item.paymentamount</span></div>
+                </div>
+                <hr/>
+                <p>
+                    收件人信息： $!item.recipientname | $!item.recipientcontact
+                </p>
+                <p>
+                    收件人地址： $!item.recipientaddress
+                </p>
+                <div class="go-pay mt10">
+                    #btn($!status, $!item.orderid)
+                </div>
+            </div>
+        #end
+         </div>
+    </div>
+    <script type="text/javascript" src="/dist/js/loader.js"></script>
+    <script type="text/javascript" src="/dist/js/personal.js"></script>
+</body>
+
+</html>

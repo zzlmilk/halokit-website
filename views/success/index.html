@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <title>Halo kit</title>
+    <link rel="icon" sizes="any" href="/img/pc_img/icon.png" />
+    <link rel="stylesheet" href="/dist/css/pc_css/all.css" />
+    <link rel="stylesheet" href="/dist/css/pc_css/success.css" />
+</head>
+
+<body>
+    #parse ('./common/header.html')
+    <main class="main-wrap">
+        <section class="submit-success pr">
+            <div class="for-wid bc">
+                <div class="to-pay bc pr mb30 c">
+                    <img class="pos-center fl" src="/img/pc_img/sub_icon.png" />
+                    <div class="order-detail pos-center lh2 pa">
+                        <p class="mb20 fs18">订单提交成功！去付款咯~</p>
+                        <p>现在支付，预计2-4天送达 <span class="beta-color">Beta</span></p>
+                        <p>请在<span class="last-time">47小时59分</span>内完成支付，超时后将取消订单</p>
+                        <p>收件人信息：某某某：888****8888&emsp;四川&emsp;成都市&emsp;锦江区&emsp;光大巷1号707</p>
+                    </div>
+                    <div class="need-pay pa fr">应付总额：<span class="total-color fs20">598.00元</span></div>
+                </div>
+                <div class="choose-way fs18">选择一下支付方式付款</div>
+                <figure class="mt20 c">
+                    <p class="fs16 lh2 fwb dlb mr10">支付平台</p><span class="fs12">(大额支付推荐使用支付宝)</span>
+                    <div class="mt10">
+                        <ul>
+                            <li class="mr15">
+                                <a class="dlb tac" href="#"><img class="h-center bc" src="/img/pc_img/alipay.png" /></a>
+                            </li>
+                            <li class="mr15">
+                                <a class="dlb tac" href="#"><img class="h-center bc" src="/img/pc_img/online_pay.png" /></a>
+                            </li>
+                            <li class="mr15">
+                                <a class="dlb tac" href="#"><img class="h-center bc" src="/img/pc_img/tenpay.png" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                </figure>
+            </div>
+        </section>
+    </main>
+    #parse ('./common/footer.html')
+</body>
+
+</html>

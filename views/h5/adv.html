@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<!--<link href="//apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />-->
+		<!-- 公共加载css end-->
+		<link href="/dist/css/adapter.css" rel="stylesheet">
+		<title>公告</title>
+		<style>
+			.title {
+				padding-top: 20px;
+			}
+			
+			h6.title {
+				line-height: 16px;
+			}
+			
+			.createtime {
+				padding: 10px;
+			}
+			
+			.content {
+				padding: 10px;
+				padding-top: 20px;
+				padding-bottom: 60px;
+			}
+			
+			.content p {
+				text-indent: 2em;
+			}
+			
+			img {
+				width: 100%;
+				border-radius: 5px;
+				margin-bottom: 10px;
+				display: block;
+			}
+			
+			.img-group {
+				overflow: hidden;
+				border-radius: 5px;
+			}
+			.img-group>img{
+				border-radius: 0;
+				margin-bottom: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<header id="header" class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">广告</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>-->
+		<div class="mui-content">
+			#if(!$!id)
+				#parse("/h5/adv/err.html")
+			#else
+				#if($!id == 'qiandao')
+					#parse("/h5/adv/qiandao.html")
+				#elseif($!id == 1)
+					#parse("/h5/adv/chunjie.html")
+				#elseif($!id == 4)
+					#parse("/h5/adv/zuiaixiu.html")
+				#elseif($!id == 5)
+					#parse("/h5/adv/huodongyue.html")
+				#elseif($!id == 6)
+				#parse("/h5/adv/xinchunhongbao.html")
+				#end
+				
+			#end
+		</div>
+		<script src="/dist/mui/js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false,
+				statusBarBackground: '#efeff4',
+			});
+			mui(document.body).on('load', function(e) {
+				e.preventDefault();
+			});
+		</script>
+	</body>
+
+</html>

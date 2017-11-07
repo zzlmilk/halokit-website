@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		#parse("./common/cssfont.html")
+		<!-- 公共加载css end-->
+		<link href="/dist/css/sos.css" rel="stylesheet">
+		<!--<link href="/dist/css/adapter.css" rel="stylesheet">-->
+		<link href="/dist/mui/css/mui.view.min.css" rel="stylesheet">
+		<title>关注</title>
+	</head>
+
+	<body id="interest" class="mui-fullscreen">
+		<div>
+			<!--页面主结构开始-->
+			<div id="app" class="mui-views">
+				<div class="mui-view">
+					<div class="mui-navbar">
+					</div>
+					<div class="mui-pages">
+					</div>
+				</div>
+			</div>
+			<!--页面主结构结束-->
+			<!--单页面开始-->
+			<div id="list" class="mui-page">
+				<!--页面标题栏开始-->
+				<div id="head" class="mui-navbar-inner mui-bar mui-bar-nav">
+					<h1 class="mui-center mui-title fm-arial">我的关注</h1>
+				</div>
+				<!--页面标题栏结束-->
+				<!--页面主内容区开始-->
+				<div class="mui-page-content">
+					<div class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div class="mui-card">
+								<div class="mui-card-content mui-row">
+									<img class="headimg mui-col-xs-3" src="http://dcloud.io/hellomui/images/logo.png" />
+									<div class="mui-col-xs-9">
+										<p>
+											<span class="name fc-dark fs15">用户名称</span>
+											<button data-idx="1" class="cancel mui-pull-right mui-btn mui-btn-link fc-pink pdr10"><i class="fa fa-heart" aria-hidden="true"></i> 已关注</button>
+										</p>
+										<a class="linkDetail" href="#find-detail" data-idx='0'>
+											<p class="mui-ellipsis">
+												啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+											</p>
+											<p class="fs13">
+												<span class="location fc-light">上海市浦东新区</span>
+												<span class="time fc-light fm-arial mui-pull-right pdr10">2016-1-1</span>
+											</p>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="mui-card">
+								<div class="mui-card-content mui-row">
+									<img class="headimg mui-col-xs-3" src="http://dcloud.io/hellomui/images/logo.png" />
+									<div class="mui-col-xs-9">
+										<p>
+											<span class="name fc-dark fs15">用户名称</span>
+											<button data-idx="1" class="do mui-pull-right mui-btn mui-btn-link fc-light pdr10"><i class="fa fa-heart-o" aria-hidden="true"></i> 关注</button>
+										</p>
+										<a class="linkDetail" href="#find-detail" data-idx='0'>
+											<p class="mui-ellipsis">
+												啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+											</p>
+											<p class="fs13">
+												<span class="location fc-light">上海市浦东新区</span>
+												<span class="time fc-light fm-arial mui-pull-right pdr10">2016-1-1</span>
+											</p>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--页面主内容区结束-->
+			</div>
+			<!--单页面结束-->
+			#parse("/sos/find-detail.html")
+		</div>
+	</body>
+	<script src="/dist/mui/js/mui.min.js"></script>
+	<script src="/dist/mui/js/mui.view.min.js"></script>
+	<script src="/dist/mui/js/mui.pullToRefresh.min.js"></script>
+	<script src="/dist/mui/js/mui.pullToRefresh.material.min.js"></script>
+	<script src="/dist/mui/js/mui.lazyload.min.js"></script>
+	<script src="/dist/mui/js/mui.lazyload.img.min.js"></script>
+	<script src="/dist/js/sos_interest.js"></script>
+	<script src="/dist/js/sos_detail.js"></script>
+</html>

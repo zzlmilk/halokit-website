@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<!--<link href="//apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />-->
+		<!-- 公共加载css end-->
+		<link href="/dist/css/settled.css" rel="stylesheet">
+		<link href="/dist/css/adapter.css" rel="stylesheet">
+		<title>完善信息</title>
+	</head>
+
+	<body class="improveInfo">
+		<div class="mui-content">
+			<form id='form' class="mui-input-group">
+				<div class="mui-input-row">
+					<label>联系人</label>
+					<input id='linkMan' type="text" class="mui-input-clear mui-input" placeholder="请输入联系姓名">
+				</div>
+				<div class="mui-input-row">
+					<label>联系QQ</label>
+					<input id='linkQQ' type="number" class="mui-input-clear mui-input" placeholder="请输入联系QQ号码">
+				</div>
+				<div class="mui-input-row">
+					<label>店铺名称</label>
+					<input id='shopName' type="text" class="mui-input-clear mui-input" placeholder="请输入店铺名称">
+				</div>
+				
+			</form>
+			<div class="mui-content-padded">
+				<button id='btnSubit' class="mui-btn mui-btn-block mui-btn-success">提交</button>
+			</div>
+
+		</div>
+		
+		<script src="/dist/mui/js/mui.min.js"></script>
+		<script>
+			mui.init();
+			
+			var input_linkMan = mui('#linkMan');
+			var input_linkQQ = mui('#linkQQ');
+			var input_shopName = mui('#shopName');
+			var sub_flag = true;
+			mui(document.body).on('tap', '#btnSubit', function(e) {
+				var linkMan = input_linkMan[0].value;
+				var linkQQ  = input_linkQQ[0].value;
+				var shopName = input_shopName[0].value;
+				
+				//联系人判断
+				if(linkMan.replace(' ','')==''){
+					mui.toast('请输入联系人');
+					return;
+				}
+				//QQ号码判断
+				if(linkQQ == '') {
+					mui.toast('请输入QQ号码');
+					return;
+				}
+				if(!/^[1-9][0-9]{4,9}$/.test(linkQQ)) {
+					mui.toast('QQ号码格式错误，请检查');
+					return;
+				}
+				//店铺名称判断
+				if(shopName.replace(' ','')==''){
+					mui.toast('请输入店铺名称');
+					return;
+				}
+				var btn = mui(this);
+				btn.button('loading');
+				//绑定
+				mui.getJSON('/h5/settled/improveInfo.do', {
+					shopname: shopName,
+					linkqq: linkQQ,
+					linkman: linkMan,
+				}, function(data) {
+					btn.button('reset');
+					console.log(data);
+					if(data.status) {
+						btn[0].classList.add("mui-disabled");
+						mui.toast('提交成功，请耐心等待审核');
+						setTimeout(function(){
+							window.location.href = window.location.href;
+						},2000)
+					} else {
+						mui.toast('操作失败，请稍后重试');
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

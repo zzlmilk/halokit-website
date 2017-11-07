@@ -1,0 +1,37 @@
+<header class="header c">
+    <div class="header-wrap h60 bc bb pl10 pr10">
+        <a class="logo dlb h-center" href="/">
+            <img class="h30" src="/img/pc_img/logo.png" alt="halo kit" />
+        </a>
+        
+        <nav id="after-login" class="header-nav fr h-center #if(!$!username) none #end">
+            <!-- <a class="nav-buy dlb pl25 pr25 mr10 vam" href="#desc-three">立即购买</a> -->
+            <a class="nav-img w30 ofh dlb mr10 vam" href="/cart">
+                <i class="i-info-cart"></i>
+            </a>
+            <div class="acco-nc dlb pr">
+                <a id="username" class=" dlb vam" href="javascript:void(0)"><span>$!username </span><img src="/img/pc_img/btm-tran.png"></a>
+                <ul class="none pa tac">
+                    <li><a href="/change">修改密码</a></li>
+                    <li><a href="/login/logout">退出账号</a></li>
+                </ul>
+            </div>
+            <i class="nav-line dlb vam"></i>
+            <a class="vam" href="/order/$!memberid?status=CUSTCONFIRM">我的订单</a>
+        </nav>
+        <!--<nav id="before-login" class="header-nav fr h-center #if($!username) none #end">
+            <a class="nav-buy dlb pl25 pr25 mr10 vam" href="#desc-three">立即购买</a>
+            <a class="nav-img w30 ofh dlb mr10 vam" href="/cart"><img src="/img/pc_img/index_cart.png"></a>
+            <a id="to-login" class="dlb vam" href="javascript:void(0)">登录</a>
+            <i class="nav-line dlb vam"></i>
+            <a id="to-register" class="vam" href="javascript:void(0)">注册</a>
+        </nav>-->
+        <span class="header-nav fr h-center">
+        	<a class="dlb vam mr10" href="/">首页</a>
+            <a class="dlb vam mr10" href="/#introPro">产品介绍</a>
+            <a class="dlb vam mr10" href="/about/know">了解可点</a>
+            <!--<a class="dlb vam mr10" href="/about/join">加入可点</a>-->
+            <a class="dlb vam mr15" href="/about/contact">联系我们</a>
+        </span>
+    </div>
+</header>

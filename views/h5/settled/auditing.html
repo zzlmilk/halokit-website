@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<!--<link href="//apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />-->
+		<!-- 公共加载css end-->
+		<link href="/dist/css/settled.css" rel="stylesheet">
+		<link href="/dist/css/adapter.css" rel="stylesheet">
+		<title>审核中</title>
+	</head>
+
+	<body class="auditing">
+		<div class="mui-content">
+			<div class="imgAuditing">
+				<img src="/img/auditing.png" />
+			</div>
+
+			<div class="mess mui-content-padded">
+				您的申请正在快马加鞭的审核中，请耐心等待！<br/> 申请时间：$!createDate
+			</div>
+
+		</div>
+
+		<script src="/dist/mui/js/mui.min.js"></script>
+	</body>
+
+</html>

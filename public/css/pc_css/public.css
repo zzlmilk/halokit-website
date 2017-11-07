@@ -1,0 +1,193 @@
+@charset 'utf-8';
+
+/**
+ * public
+ */
+
+.main-wrap {
+    min-width: 1100px;
+}
+
+/**
+ * header
+ */
+
+.header {
+    width: 100%;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, .2);
+    z-index: 999;
+}
+
+.header-wrap {
+    max-width: 1100px;
+}
+
+.logo {
+    height: 50%;
+}
+
+
+/* 内容居中宽度 */
+
+.w1100 {
+    max-width: 1100px;
+}
+
+
+/* 垂直居中 */
+
+.h-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: -webkit-translateY(-50%);
+    -moz-transform: -moz-translateY(-50%);
+    -o-transform: -o-translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+/* 头部左侧 */
+
+.header-nav {
+    line-height: 2.2em;
+}
+
+.nav-buy {
+    border: 1px solid #bcc91c;
+    color: #bcc91c;
+}
+
+.nav-img {
+    height: 25px;
+}
+
+.nav-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.nav-line {
+    height: 1em;
+    margin-left: .4em;
+    margin-right: .4em;
+    position: relative;
+    width: 1px;
+    background-color: #ccc;
+}
+
+.acco-nc img {
+    margin-left: 4px;
+}
+.acco-nc:hover ul {
+    display: block;
+}
+.acco-nc > a {
+    height: 60px;
+    line-height: 60px;
+}
+
+.acco-nc ul {
+    width: 196px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .3);
+    background-color: rgba(255, 255, 255, .8);
+    left: -35px;
+    padding: 5px 0;
+}
+
+/**
+ * footer
+ */
+.footer {
+    width: 100%;
+    border-top: 4px solid #f5f5f5;
+}
+
+.container {
+    min-width: 1100px;
+    height: 200px;
+}
+
+.footer-service {
+    height: 80px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.footer .list-service li {
+    float: left;
+    width: 19.8%;
+    height: 25px;
+    font-size: 16px;
+    line-height: 25px;
+    margin: 27px 0;
+    text-align: center;
+    color: #747474;
+    border-left: 1px solid #e0e0e0;
+}
+.footer .list-service li:first-child {
+    border-left: 0;
+}
+
+.footer .list-service img {
+    width: 25px;
+    height: 25px;
+    right: 3px;
+    vertical-align: -6px;
+}
+
+
+.footer-links .dl-links {
+    float: left;
+    width: 19%;
+    height: 115px;
+    padding: 30px 0;
+    line-height: 2em;
+}
+
+.footer-links .dl-links dt {
+    color: #424242;
+    margin-bottom: 5px;
+}
+.footer-links .dl-links dd {
+    font-size: 12px;
+    color: #747884;
+}
+.footer-links .dl-links dd a:hover {
+    color: #bcc91c;
+}
+
+
+.footer-links .f-contact {
+    width: 20%;
+    float: right;
+    height: 115px;
+    margin: 30px 9px;
+    border-left: 1px solid #e0e0e0;
+}
+
+.footer-links .f-contact p{
+    margin-bottom: 18px;
+}
+.footer-links .f-contact .phone-number {
+    color: #bcc91c;
+    margin-bottom: 5px;
+}
+
+.footer-links .f-contact .online-call {
+    width: 120px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #bcc91c;
+    color: #bcc91c;
+}
+
+.footer-links .f-contact a:hover {
+    color: #7d8514;
+    border: 1px solid #7d8514;
+}
+.footer-links .f-contact .online-call img {
+    vertical-align: -3px;
+    width: 14px;
+    height: 14px;
+}

@@ -1,0 +1,483 @@
+.mui-pages .mui-page {
+    display: block;
+}
+
+.mui-page {
+    display: none;
+}
+.mui-views, .mui-view, .mui-pages, .mui-page, .mui-page-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #efeff4;
+}
+
+.mui-input-row label~input,
+.mui-input-row label~select,
+.mui-input-row label~textarea {
+	font-size: 15px !important;
+}
+
+.mui-content {
+	background: inherit !important;
+}
+
+.mui-btn.mui-btn-block {
+	padding: 10px !important;
+}
+
+.mui-bar {
+	background-color: #f8f8f8;
+	-webkit-box-shadow: 0 0 1px #eaeaea;
+	box-shadow: 0 0 1px #eaeaea;
+}
+
+.mui-pull-top-tips {
+	position: absolute;
+	top: -20px;
+	left: 50%;
+	margin-left: -25px;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	z-index: 9999;
+}
+
+.mui-bar~.mui-pull-top-tips {
+	top: 24px;
+}
+
+.mui-pull-top-wrapper {
+	width: 42px;
+	height: 42px;
+	display: block;
+	text-align: center;
+	background-color: #efeff4;
+	border: 1px solid #ddd;
+	border-radius: 25px;
+	background-clip: padding-box;
+	box-shadow: 0 4px 10px #bbb;
+	overflow: hidden;
+}
+
+.mui-pull-top-tips.mui-transitioning {
+	-webkit-transition-duration: 200ms;
+	transition-duration: 200ms;
+}
+
+.mui-pull-top-tips .mui-pull-loading {
+	/*-webkit-backface-visibility: hidden;
+				-webkit-transition-duration: 400ms;
+				transition-duration: 400ms;*/
+	margin: 0;
+}
+
+.mui-pull-top-wrapper .mui-icon,
+.mui-pull-top-wrapper .mui-spinner {
+	margin-top: 7px;
+}
+
+.mui-pull-top-wrapper .mui-icon.mui-reverse {
+	/*-webkit-transform: rotate(180deg) translateZ(0);*/
+}
+
+.mui-pull-bottom-tips {
+	text-align: center;
+	background-color: #efeff4;
+	font-size: 15px;
+	line-height: 40px;
+	color: #777;
+}
+
+.mui-pull-top-canvas {
+	overflow: hidden;
+	background-color: #fafafa;
+	border-radius: 40px;
+	box-shadow: 0 4px 10px #bbb;
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+}
+
+.mui-pull-top-canvas canvas {
+	width: 40px;
+}
+
+.mui-slider-indicator.mui-segmented-control {
+	background-color: #efeff4;
+}
+
+.mui-toast-container{
+	bottom: 60% !important;
+}
+/********************************************************************************/
+.fm-arial{
+	font-family: arial,'arial' !important;
+}
+
+.fc-green {
+	color: #4cd964 !important;
+}
+
+.fc-default{
+	color: #666666 !important;
+}
+.fc-dark{
+	color: #333333 !important;
+}
+.fc-light{
+	color: #999999 !important;
+}
+
+.fc-black{
+	color: #000000 !important;
+}
+
+.bg-green {
+	background-color: #4cd964 !important;
+}
+
+.bg-linear-blue {
+	background: -moz-linear-gradient(left top, #44e2fe, #368afe);
+	background: -webkit-linear-gradient(left top, #44e2fe, #368afe);
+	background: -o-linear-gradient(left top, #44e2fe, #368afe);
+}
+
+.mui-icon.fa {
+	font-size: 20px !important;
+	padding: 2px !important;
+}
+
+.spinner {
+	animation: spinner-spin 1s step-end infinite;
+}
+
+
+/********************************************************************************/
+
+body {
+	color: #666666;
+	font-size: 15px !important;
+	background: #efeff4;
+}
+
+body.apply {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background: #f8f8f8 !important;
+}
+
+
+/*申请绑定页*/
+
+body.apply .mui-content {
+	height: 100%;
+}
+
+body.apply #logo {
+	margin: 0 auto;
+	margin-top: 12%;
+	margin-bottom: 10%;
+}
+
+body.apply #logo img {
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+}
+
+body.apply .area {
+	margin: 20px auto 0px auto;
+}
+
+body.apply .mui-input-group {
+	margin-top: 10px;
+}
+
+body.apply .mui-input-group #btnGetVcode {
+	padding: 3px 5px;
+	position: absolute;
+	right: 5px;
+	top: 6px;
+}
+
+body.apply .mui-input-group:first-child {
+	margin-top: 20px;
+}
+
+body.apply .mui-input-group label {
+	width: 28%;
+	white-space: nowrap;
+}
+
+body.apply .mui-input-row label~input,
+body.apply .mui-input-row label~select,
+body.apply .mui-input-row label~textarea {
+	width: 72%;
+}
+
+body.apply .mui-input-row input~span.mui-icon,
+body.apply .mui-input-row select~span.mui-icon,
+body.apply .mui-input-row textarea~span.mui-icon {
+	display: none !important;
+}
+
+body.apply .mui-checkbox input[type=checkbox],
+body.apply .mui-radio input[type=radio] {
+	top: 6px;
+}
+
+body.apply .mui-content-padded:last-child {
+	margin-top: 8%;
+}
+
+
+/*完善信息页*/
+
+body.improveInfo .mui-content {
+	padding-top: 20px;
+}
+
+
+/*审核中*/
+
+body.auditing {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background: #ffffff !important;
+}
+
+body.auditing .mui-content {
+	padding-top: 18%;
+}
+
+body.auditing .imgAuditing img {
+	width: 40%;
+	display: block;
+	margin: 0 auto;
+}
+
+body.auditing .mess {
+	padding-top: 8%;
+	text-align: center;
+	color: #333333;
+	line-height: 34px;
+}
+
+
+/*平台*/
+
+
+/*platform/index*/
+
+body.platform-container {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+
+/*platform/show*/
+
+body.platform {
+	width: 100%;
+}
+
+body.platform .dashboard {
+	height: 170px;
+	color: #FFFFFF;
+	width: 100%;
+	/*	position: fixed;*/
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+
+body.platform .list {
+	position: relative;
+	/*padding-top: 171px;*/
+	height: 58%;
+}
+
+body.platform .list .mui-ellipsis {
+	color: #b6b6b6 !important;
+}
+
+
+/*签到*/
+
+body.platform #tabbar-signin .dashboard .content>span {
+	display: block;
+	width: 70%;
+	text-align: center;
+}
+
+body.platform #tabbar-signin .dashboard .content>span.number {
+	font-weight: 800;
+	font-size: 20px;
+}
+
+body.platform #tabbar-signin .dashboard .content>span.title {
+	font-size: 14px;
+}
+
+body.platform #tabbar-signin .dashboard div.left>span {
+	margin-left: 30%;
+}
+
+body.platform #tabbar-signin .dashboard div.right>span {
+	margin-right: 30%;
+}
+
+body.platform #tabbar-signin .dashboard div.left,
+body.platform #tabbar-signin .dashboard div.right {
+	margin-top: 70px;
+}
+
+body.platform #tabbar-signin .dashboard div.center {
+	height: 130px;
+	margin-top: 24px;
+	position: relative;
+}
+
+body.platform #tabbar-signin .dashboard div.center .bg {
+	background-image: url('/img/enterloading.png');
+	background-position: center;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	height: 100%;
+	/*width: 130px;*/
+}
+
+body.platform #tabbar-signin .dashboard div.center .content {
+	position: absolute;
+	top: 46px;
+	left: 0;
+	width: 100%;
+}
+
+body.platform #tabbar-signin .dashboard div.center .content>span {
+	margin: 0 auto;
+}
+
+body.platform #tabbar-signin .dashboard div.center .content>.icon {
+	font-size: 100px;
+	height: 30px;
+	position: relative;
+	top: -40px;
+}
+
+body.platform #tabbar-signin .dashboard div.center .content>.title {
+	font-size: 16px;
+}
+
+body.platform #tabbar-signin .list li img {
+	border-radius: 3px;
+}
+
+body.platform #tabbar-signin .list li a {
+	background-color: #ffffff !important;
+}
+
+body.platform #tabbar-signin .list li button {
+	background: #40ceff !important;
+	border: 1px solid #40ceff !important;
+	padding: 3px 20px !important;
+	border-radius: 5px;
+}
+
+
+/*营业统计*/
+
+body.platform #tabbar-statistics .dashboard .info {
+	height: 67%;
+}
+
+body.platform #tabbar-statistics .dashboard .info>span {
+	display: block;
+	width: 100%;
+	text-align: center;
+	padding-top: 10px;
+}
+
+body.platform #tabbar-statistics .dashboard .info>span.number {
+	color: #ffea35;
+	font-size: 32px;
+	padding-top: 35px !important;
+}
+
+body.platform #tabbar-statistics .dashboard .info>span {
+	display: block;
+	width: 100%;
+	text-align: center;
+	padding-top: 10px;
+}
+
+body.platform #tabbar-statistics .dashboard .date {
+	height: 33%;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+body.platform #tabbar-statistics .dashboard .date span {
+	display: block;
+	text-align: center;
+}
+
+body.platform #tabbar-statistics .dashboard .date span {
+	display: block;
+	text-align: center;
+	position: relative;
+}
+
+body.platform #tabbar-statistics .dashboard .date span .fa{
+	font-size: 18px;
+	color: #999999;
+}
+
+body.platform #tabbar-statistics .dashboard .date span:first-child {
+	color: #666666;
+	padding-top: 7px;
+}
+
+body.platform #tabbar-statistics .dashboard .date span:last-child {
+	font-size: 14px;
+	color: #3ea5ff;
+	font-weight: 800;
+}
+
+body.platform #statisticsDetail-list .list{
+	height: 90%;
+}
+
+body.platform #statisticsDetail-list .orderlist{
+	margin-top: 10px;
+}
+
+body.platform #statisticsDetail-list .orderlist .mui-table-cell{
+	vertical-align:middle;
+}
+
+body.platform #statisticsDetail-list .orderlist .headimg>img{
+	width: 60px;
+	height: 60px;
+	border-radius: 60px;
+	position: relative;
+	top: 3px;
+}
+
+body.platform #statisticsDetail-list .orderlist .goods-row .headimg>img{
+	border-radius: 0px;
+}
+
+body.platform #statisticsDetail-list .orderlist .goods-row .money{
+	vertical-align:top;
+}

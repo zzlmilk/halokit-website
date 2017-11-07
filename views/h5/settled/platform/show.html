@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<link href="/dist/mui/css/mui.picker.min.css" rel="stylesheet">
+		#parse("./common/cssfont.html")
+		<!-- 公共加载css end-->
+		<link href="/dist/css/settled.css" rel="stylesheet">
+		<link href="/dist/css/adapter.css" rel="stylesheet">
+		<title>商户平台</title>
+	</head>
+
+	<body class="platform">
+		<!--<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar-signin">
+				<span class="mui-icon fa fa-calendar-check-o" aria-hidden="true"></span>
+				<span class="mui-tab-label">签到</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-statistics">
+				<span class="mui-icon fa fa-bar-chart" aria-hidden="true">
+				</span>
+				<span class="mui-tab-label">营业统计</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-userinfo">
+				<span class="mui-icon fa fa-user-secret" aria-hidden="true"></span>
+				<span class="mui-tab-label">商户资料</span>
+			</a>
+		</nav>-->
+		<div class="mui-content">
+			<!--签到 begin-->
+			<div id="tabbar-signin" class="mui-control-content mui-slider mui-fullscreen mui-active">
+				<div class="dashboard bg-linear-blue mui-row">
+					<div class="mui-col-xs-3 left content">
+						<span class="number fm-arial">$!signinList.totalcount</span>
+						<span class="title">今日签到</span>
+					</div>
+					<div id="btn-Signin" class="mui-col-xs-6 center">
+						<div class="bg"></div>
+						<div class="content">
+							<span class="mui-icon mui-icon-checkmarkempty icon" aria-hidden="true"></span>
+							<span class="title">一键确认</span>
+						</div>
+					</div>
+					<div class="mui-col-xs-3 right content">
+						<span class="number fm-arial">$!signinList.data.length</span>
+						<span class="title">未确认</span>
+					</div>
+				</div>
+				<div class="list mui-row">
+					<div class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<ul class="mui-table-view">
+								#foreach($data in $!signinList.data)
+								<li class="mui-table-view-cell mui-media">
+									<a href="javascript:;">
+										<img class="mui-media-object mui-pull-left" src="$!data.imagePath">
+										<div class="mui-media-body">
+											$!data.petnicename
+											<p class="mui-ellipsis fm-arial">$!data.createDate</p>
+										</div>
+										<button class="mui-btn mui-btn-primary btn-Signin" idx="$!data.id" onclick="signin(this);">确认</button>
+									</a>
+								</li>
+								#end 
+								#if($signinList.data.length<=0) 
+								<li class="mui-table-view-cell mui-media">
+									<a href="javascript:;" class="mui-text-center">
+										暂无新的签到
+									</a>
+								</li>
+								#end
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!--签到 end-->
+			<!--营业统计 begin-->
+			<div id="tabbar-statistics" class="mui-control-content mui-slider mui-fullscreen">
+				<!--页面主结构开始-->
+				<div id="statistics-app" class="mui-views">
+					<div class="mui-view">
+						<!--<div class="mui-navbar">
+						</div>-->
+						<div class="mui-pages">
+						</div>
+					</div>
+				</div>
+				<!--页面主结构结束-->
+				<!--单页面 begin-->
+				<div id="statistics-list" class="mui-page">
+					<!--页面主内容区开始-->
+					<div class="mui-page-content">
+						<div class="dashboard bg-linear-blue mui-row">
+							<div class="info mui-text-center">
+								<span class="number fm-arial">50,000</span>
+								<span class="title">合计销售额（元）</span>
+							</div>
+							<div class="date mui-row">
+								<div class="datePicker mui-col-xs-6 mui-text-center" data-options='{"type":"month","value":"2017-12"}'>
+									<span class="title">&nbsp;开始日期 <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+									<span class="startDate selectDate fm-arial">2016-01</span>
+								</div>
+								<div class="datePicker mui-col-xs-6 mui-text-center" data-options='{"type":"month","value":"2017-1"}'>
+									<span class="title">&nbsp;结束日期 <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+									<span class="endDate selectDate fm-arial">2016-12</span>
+								</div>
+							</div>
+						</div>
+						<div class="list mui-row">
+							<div class="mui-scroll-wrapper">
+								<div class="mui-scroll">
+									<ul class="mui-table-view">
+										<li class="mui-table-view-cell mui-media">
+											<a class="mui-navigate-right" href="#statisticsDetail-list" idx="1">
+												<div class="mui-table">
+													<div class="mui-table-cell mui-col-xs-4 date fm-arial">
+														2016-11-21
+													</div>
+													<div class="mui-table-cell mui-col-xs-7 mui-text-right fm-arial money">
+														300,00
+													</div>
+													<div class="mui-table-cell mui-col-xs-1"></div>
+												</div>
+											</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!--页面主内容区结束-->
+				</div>
+				<div id="statisticsDetail-list" class="mui-page">
+					<!--页面主内容区开始-->
+					<div class="mui-page-content">
+						<header class="mui-bar mui-bar-nav">
+							<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+								<span class="mui-icon mui-icon-left-nav"></span>
+							</button>
+							<h1 class="mui-title">折叠面板</h1>
+						</header>
+						<div class="list mui-row">
+							<div class="mui-scroll-wrapper">
+								<div class="mui-scroll">
+									<ul class="mui-table-view">
+										<li class="mui-table-view-cell mui-media">
+											<a class="mui-navigate-right" href="javascript:;" idx="1">
+												<div class="mui-table">
+													<div class="mui-table-cell mui-col-xs-4 date fm-arial">
+														2016-11-21
+													</div>
+													<div class="mui-table-cell mui-col-xs-7 mui-text-right fm-arial money">
+														300,00
+													</div>
+													<div class="mui-table-cell mui-col-xs-1"></div>
+												</div>
+											</a>
+										</li>
+										<li class="mui-table-view-cell mui-media">
+											<a class="mui-navigate-right" href="javascript:;" idx="2">
+												<div class="mui-table">
+													<div class="mui-table-cell mui-col-xs-4 date fm-arial">
+														2016-11-21
+													</div>
+													<div class="mui-table-cell mui-col-xs-7 mui-text-right fm-arial money">
+														300,00
+													</div>
+													<div class="mui-table-cell mui-col-xs-1"></div>
+												</div>
+											</a>
+										</li>
+										<li class="mui-table-view-cell mui-media">
+											<a class="mui-navigate-right" href="javascript:;" idx="3">
+												<div class="mui-table">
+													<div class="mui-table-cell mui-col-xs-4 date fm-arial">
+														2016-11-21
+													</div>
+													<div class="mui-table-cell mui-col-xs-7 mui-text-right fm-arial money">
+														300,00
+													</div>
+													<div class="mui-table-cell mui-col-xs-1"></div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!--页面主内容区结束-->
+				</div>
+
+				<!--单页面 end-->
+			</div>
+			<!--营业统计 end-->
+			<!--商户资料 begin-->
+			<div id="tabbar-userinfo" class="mui-control-content">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<div class="mui-table">
+							<div class="mui-table-cell mui-col-xs-4">
+								联系人
+							</div>
+							<div class="mui-table-cell mui-col-xs-8">
+								王景麒
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-table">
+							<div class="mui-table-cell mui-col-xs-4">
+								联系电话
+							</div>
+							<div class="mui-table-cell mui-col-xs-8 fm-arial">
+								18516152077
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-table">
+							<div class="mui-table-cell mui-col-xs-4">
+								店铺名称
+							</div>
+							<div class="mui-table-cell mui-col-xs-8">
+								啊啦啦啦啦啦啦
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!--<div class="mui-content-padded">
+					<button id='btnSubit' class="mui-btn mui-btn-block mui-btn-primary">修改</button>
+				</div>-->
+			</div>
+			<!--商户资料 end-->
+		</div>
+	</body>
+	<script src="/dist/mui/js/mui.min.js"></script>
+	<script src="/dist/mui/js/mui.view.js"></script>
+	<script src="/dist/mui/js/mui.pullToRefresh.min.js"></script>
+	<script src="/dist/mui/js/mui.pullToRefresh.material.min.js"></script>
+	<script src="/dist/mui/js/mui.picker.min.js"></script>
+	<script src="/dist/js/merchantPlatform.js"></script>
+
+</html>

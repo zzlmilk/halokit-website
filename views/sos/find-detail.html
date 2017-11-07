@@ -1,0 +1,157 @@
+<div id="find-detail" class="mui-page">
+	<div id="detail-head" class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<span class="mui-icon mui-icon-left-nav"></span>返回
+		</button>
+		<h1 class="mui-center mui-title mui-ellipsis fm-arial">详情</h1>
+		<button class="share mui-right mui-btn mui-btn-link mui-pull-right">
+			分享
+		</button>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group">
+						<!--<div class="mui-slider-item">
+										<img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" style="margin-top: 28px;">
+									</div>
+									<div class="mui-slider-item">
+										<img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" style="margin-top: 28px;">
+									</div>-->
+					</div>
+					<div class="mui-slider-indicator">
+						<!--<div class="mui-indicator mui-active"></div>
+									<div class="mui-indicator"></div>-->
+					</div>
+				</div>
+
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell userinfo">
+						<img class="headimg mui-media-object mui-pull-left mui-col-xs-2" src="http://7xwshy.com1.z0.glb.clouddn.com/7ZBisD2KcPsWDkwT2703.jpeg">
+						<div class="mui-media-body">
+							<p>
+								<span class="name fc-dark fs15">用户名称</span>
+								<a id="btn-interest" data-type="do" class="mui-pull-right fc-light"><i class="fa fa-heart-o" aria-hidden="true"></i> 关注</a>
+								<a id="btn-edit" class="mui-pull-right fc-light"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+							</p>
+							<p class="fs13">
+								<span class="location fc-light"></span>
+								<span class="time fc-light fm-arial mui-pull-right"></span>
+							</p>
+						</div>
+						<p class="describe fc-dark us_text">
+
+						</p>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								丢失地点：
+								<!-- 此元素不删除 保证js不会因为找不到元素报错 -->
+								<div class="lostLocation mui-hidden"></div>
+							</div>
+							<!--<div class="mui-col-xs-8">
+								<div class="lostLocation"></div>
+								<div class="lostAddr mgt10"></div>
+							</div>-->
+							<div class="mui-col-xs-8 lostAddr us_text">
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								丢失时间：
+							</div>
+							<div class="mui-col-xs-8 lostTime fm-arial us_text">
+							</div>
+						</div>
+					</li>
+				</ul>
+
+				<ul class="mui-table-view mgt10">
+					<li class="mui-table-view-cell">
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								联系电话：
+							</div>
+							<div class="mui-col-xs-8 phone fm-arial us_text">
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								&nbsp;&nbsp;QQ号：
+							</div>
+							<div class="mui-col-xs-8 qq fm-arial us_text">
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								&nbsp;微信号：
+							</div>
+							<div class="mui-col-xs-8 wechat fm-arial us_text">
+							</div>
+						</div>
+					</li>
+				</ul>
+
+				<div class="mgt10 comment-list">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<div class="mui-row">
+								<!--<div class="mui-col-xs-4 mui-text-left fc-light">
+												<i class="fa fa-eye" aria-hidden="true"></i> 看过：<span class="seeCount fm-arial">50000</span>
+											</div>-->
+								<div class="mui-col-xs-4 mui-text-left fc-light">
+									<i class="fa fa-commenting"></i> 线索数：<span class="commentCount fm-arial"></span>
+								</div>
+								<div class="mui-col-xs-4 mui-text-left fc-light">
+									<i class="fa fa-heart-o" aria-hidden="true"></i> 关注数：<span class="interestCount fm-arial"></span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="mui-table-view clearTopBoder clearBottomBoder">
+						<li class="mui-table-view-cell">
+							<div class="mui-row">
+								<div class="mui-col-xs-9">
+									<input id="comment" type="text" placeholder="提供线索" />
+								</div>
+								<div class="mui-col-xs-3 mui-text-right">
+									<button id="subComment">提交</button>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="mui-table-view list">
+						<!--<li class="mui-table-view-cell userinfo">
+							<img class="headimg mui-media-object mui-pull-left mui-col-xs-2" src="http://dcloud.io/hellomui/images/logo.png">
+							<div class="mui-media-body">
+								<p>
+									<span class="name fc-dark fs15">用户名称</span>
+								</p>
+								<p class="fs13">
+									<span class="time fc-light fm-arial">2016-1-1 11:30:30</span>
+								</p>
+								<p class="describe fc-dark">
+								啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+								</p>
+							</div>
+						</li>
+						-->
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+<script>
+	var type = '$!type';
+</script>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+	<head>
+		#parse("./common/meta.html")
+		<title>Halo kit</title>
+		<link rel="icon" sizes="any" href="/img/pc_img/pc_img/icon.png" />
+		<link rel="stylesheet" href="/css/pc_css/all.css" />
+		<link rel="stylesheet" href="/css/pc_css/layers.css" />
+		<link rel="stylesheet" type="text/css" href="/dist/css/pc_css/sprite.css">
+		<link rel="stylesheet" type="text/css" href="/dist/css/pc_css/swiper-3.3.1.min.css">
+		<link rel="stylesheet" href="/dist/css/pc_css/index.css" />
+	</head>
+
+	<body>
+		#parse("./common/header.html")
+		<main class="main-wrap">
+			<!-- video -->
+			<section id="video-page" class="z4 pr" style="width: 100%;height: 900px; overflow: hidden; ">
+				<!-- <p style="color:white">全时记录Ta的活动情况，根据Ta的资料来模拟描绘Ta的行为，追踪趋势，切实反映Ta的实际情况</p> -->
+				<video id="part-video" autoplay src="/media/aboutHalokit.mp4" style="
+                min-width: 100%;
+                min-height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index:-1;" loop>不支持</video>
+				<a id="video-btn" style="z-index: 1; position: absolute; right: 30px; bottom: 20px; color: #ecf0f1; height: 22px; font-size: 15px;" href="javascript:void(0)"><span class="dlb mr5" style="line-height: 22px;">点击观看完整视频</span><img src="/img/pc_img/play.png" style="width: 20px; vertical-align: top;"></a>
+			</section>
+			<!-- video end -->
+			<!-- dog-one -->
+			<section id="desc-one" class="desc-one pr z3">
+				<div id="introPro" class="pa" style="top: 25%;"></div>
+				<div class="desc-btm pa">
+					<figure class="w1100 bc pr">
+						<div class="full-record h-center">
+							<p class="day-record fs22">全天记录</p>
+							<p class="ch-record mb10">先进感应器，7x24 全时记录Ta的活动情况，根据Ta的资料来模拟描绘Ta的行为，追踪趋势，切实反映Ta的实际情况</p>
+							<p class="en-record lh2">Advanced sensor,7x24 full-time record the movements of the Ta, according to the dog to simulate depict the dog's behavior, tracking the trend,to reflect the actual situation of the dog.</p>
+						</div>
+						<img class="phone-img dlb pa img-animate" src="/img/pc_img/phone.png" />
+					</figure>
+				</div>
+			</section>
+			<!-- cat-two -->
+			<section class="desc-two pr z2">
+				<div class="desc-btm pa">
+					<figure class="w1100 bc pr">
+						<img class="ring-one dlb pa img-animate" src="/img/pc_img/ring-one.png" />
+						<div class="two-record dlb h-center fr">
+							<p class="day-record fs22">全天记录</p>
+							<p class="ch-record mb10">先进感应器，7x24 全时记录Ta的活动情况，根据Ta的资料来模拟描绘Ta的行为，追踪趋势，切实反映Ta的实际情况</p>
+							<p class="en-record lh2">Advanced sensor,7x24 full-time record the movements of the Ta, according to the dog to simulate depict the dog's behavior, tracking the trend,to reflect the actual situation of the dog.</p>
+						</div>
+					</figure>
+				</div>
+			</section>
+			<!-- dog-three -->
+			<section id="desc-three" class="desc-three pr z1">
+				<div class="desc-bg pa">
+					<figure class="w1100 bc pr">
+						<div class="swiper-img-container swiper-container fl" style="width:500px;height:300px">
+							<div class="swiper-wrapper">
+								#foreach($item in $data.size) #foreach($color in $item.color)
+								<div class="swiper-slide">
+									<img class="middle" src="$!color.imagepath">
+								</div>
+								#end #break #end
+							</div>
+						</div>
+						<!-- 图片切换 -->
+						<!-- <div class="swiper-container-img">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                       <img class="middle" src="http://7xwshy.com1.z0.glb.clouddn.com/pink.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="middle" src="http://7xwshy.com1.z0.glb.clouddn.com/black.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="middle" src="http://7xwshy.com1.z0.glb.clouddn.com/cafe.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="middle" src="http://7xwshy.com1.z0.glb.clouddn.com/white.png">
+                    </div>
+                  </div>
+                </div> -->
+						<!-- 图片切换end -->
+						<form class="form fr">
+							<table class="size-color mr30">
+								<tbody>
+									<tr>
+										<td>尺寸<span class="dlb pr fs12">size</span></td>
+										<td class="swiper-size-pagination">
+										</td>
+									</tr>
+									<tr>
+										<td>颜色<span class="dlb pr fs12">color</span></td>
+										<td class="swiper-color-container swiper-container">
+											<div class="swiper-wrapper">
+												#foreach($item in $data.size)
+												<div class="swiper-slide swiper-img-pagination">
+													<!-- #foreach($color in $item.color)
+                                            <label class="block pink">
+                                                <span class="choose-color"></span> $color.name
+                                            </label>
+                                        #end -->
+												</div>
+												#end
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="price fs18 mt10">598<span class="fs13">元</span></div>
+							<a class="join-cart dlb tac mt10" href="/">加入购物车</a>
+						</form>
+					</figure>
+				</div>
+			</section>
+			<!-- 参数参考 -->
+			<section class="para-refer pr pb20">
+				<div class="para-bg w1100 bc">
+					<div class="para-text mt10 mb20">参数参考</div>
+					<ul class="c">
+						<li class="li-left">外观</li>
+						<li class="li-right size-weight">
+							<div class="fl">
+								<span class="db">尺寸： 30.2mm (直径)</span>
+								<span class="db">重量： 8.8g</span>
+							</div>
+							<div class="right-text dlb fr pr">
+								<span class="right-circle dlb r50">
+                                <span class="pr db"></span>
+								</span>
+								<span class="right-he dlb pr"></span>
+								<span class="right-mm dlb pr">30.2mm</span>
+							</div>
+						</li>
+					</ul>
+					<ul class="c">
+						<li class="li-left">通讯网络</li>
+						<li class="li-right">GSM900/1800</li>
+					</ul>
+					<ul class="c">
+						<li class="li-left">定位模式</li>
+						<li class="li-right">GPS，基站</li>
+					</ul>
+					<ul class="c">
+						<li class="li-left">电池</li>
+						<li class="li-right">580mAh聚合物电池</li>
+					</ul>
+					<ul class="c">
+						<li class="li-left">待机时间</li>
+						<li class="li-right">5天</li>
+					</ul>
+					<ul class="c">
+						<li class="li-left">系统要求</li>
+						<li class="li-right">android4.4或IOS 8.0及以上</li>
+					</ul>
+					<ul class="c">
+						<li class="li-left">工作温度</li>
+						<li class="li-right">-20℃至50℃ </li>
+					</ul>
+					<ul class="c">
+						<li class="li-left">防水等级</li>
+						<li class="li-right">防短时浸泡，即在常温常压下，当外壳暂时浸泡在1M深的水里将不会造成有害影响（IP67）</li>
+					</ul>
+					<ul class="c">
+						<li class="li-left">产品重量</li>
+						<li class="li-right">53g</li>
+					</ul>
+					<ul class="c">
+						<li class="li-left">最大承受拉力</li>
+						<li class="li-right">65kg</li>
+					</ul>
+					<!-- <ul class="last-ul c">
+                <li class="li-btm-left tac">兼容设备</li>
+                <li class="li-btm-right">
+                    <span class="ios-text dlb mr30 pl10 fs20 lh2 pr">iOS适配机型
+                        <ul>
+                            <li class="fs13 lh2">iPhone 4s</li>
+                            <li class="fs13 lh2">iPhone 5,5s,5c</li>
+                            <li class="fs13 lh2">iPhone 6,6 Plus</li>
+                            <li class="fs13 lh2">iPad 3,4,Air,Air2</li>
+                            <li class="fs13 lh2">iPad mini,mini 2,mini 3</li>
+                            <li class="fs13 lh2">iPad Touch5</li>
+                        </ul>
+                    </span>
+                    <span class="and-text dlb fs20 lh2 pr">Android适配机型
+                        <ul>
+                            <li class="fs13 lh2">需要Android 4.3以上操作系统，且设备支持蓝牙4.0</li>
+                            <li class="fs13 lh2">经典适配机型：</li>
+                            <li class="fs13 lh2">三星：Galaxy S3,S4,S5 / Note2,3</li>
+                            <li class="fs13 lh2">小米：小米3，小米4</li>
+                            <li class="fs13 lh2">索尼：Xperia Z2,M2</li>
+                            <li class="fs13 lh2">摩托罗拉：Moto G</li>
+                            <li class="fs13 lh2">HTC：M8</li>
+                            <li class="fs13 lh2">LG：Nexus 5</li>
+                            <li class="fs13 lh2">Oppo：Find 7</li>
+                        </ul>
+                    </span>
+                </li>
+            </ul> -->
+				</div>
+			</section>
+		</main>
+
+		#parse ("./common/footer.html") #parse ("./common/login.html") #parse ("./common/register.html") #parse ("./common/service.html") #parse ("./common/subscription.html") #parse ("./common/video.html")
+		<script src="/dist/js/jq.js"></script>
+		<script src="/dist/js/jq.cookie.js"></script>
+		<script src="/js/pc_js/index.js"></script>
+		<script src="/js/pc_js/register.js"></script>
+		<script src="/js/pc_js/login.js"></script>
+		<script src="/js/pc_js/service.js"></script>
+		<script src="/js/pc_js/video.js"></script>
+		<script type="text/javascript" src="/js/pc_js/swiper-3.3.1.jquery.min.js"></script>
+		<script type="text/javascript">
+			$.get("getCommodityInfo", function(e) {
+				_swiper.initColor(e.size);
+			});
+
+			var _swiper = {
+				initColor: function(size) {
+					var sizes = [];
+					for(var i in size) {
+						sizes.push(size[i]);
+					}
+					this.initImg(sizes[0].color);
+					var mySwiper = new Swiper('.swiper-color-container', {
+						pagination: '.swiper-size-pagination',
+						paginationClickable: true,
+						paginationBulletRender: function(current, clsName) {
+							console.log(clsName);
+							return '<label class="choose-size ' + clsName + '" data-id=' + sizes[current].id + '>' + sizes[current].name + '</label>';
+						}
+
+					});
+				},
+				initImg: function(data) {
+					var color = [];
+					for(var i in data) {
+						color.push(data[i]);
+					}
+					var mySwiper = new Swiper('.swiper-img-container', {
+						loop: true,
+						slidesPerView: 3,
+						effect: 'coverflow',
+						centeredSlides: true,
+						tdFlow: {
+							shadows: false,
+						},
+						pagination: '.swiper-img-pagination',
+						paginationClickable: true,
+						paginationBulletRender: function(current, clsName) {
+							var colorName = {
+								white: "古董白",
+								black: "深空黑",
+								cafe: "咖啡色",
+								pink: "亮粉色"
+							};
+							return '<label class="block ' + color[current].name.toLowerCase() + " " + clsName + '"><span class="choose-color"></span> ' + colorName[color[current].name.toLowerCase()] + '</label>';
+						}
+					});
+				}
+			}
+		</script>
+	</body>
+
+</html>

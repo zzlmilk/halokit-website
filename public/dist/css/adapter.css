@@ -1,0 +1,14 @@
+/*电脑适配手机*/
+
+@media only screen and (min-width: 415px) {
+	body {
+		display: block !important;
+		margin: 0 auto !important;
+		height: 736px !important;
+		width: 414px !important;
+		border: 1px solid #EBEBEB !important;
+		overflow: hidden !important;
+		margin-top: 50px !important;
+		position: relative !important;
+	}
+}

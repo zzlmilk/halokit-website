@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		#parse("./common/meta.html") #parse("./common/meta_viewport.html")
+
+		<!-- 公共加载css begin-->
+		<link href="/dist/mui/css/mui.min.css" rel="stylesheet">
+		<!-- 公共加载css end-->
+		<link href="/dist/css/sos.css" rel="stylesheet"> #parse("./common/cssfont.html")
+		<!--<link href="/dist/css/adapter.css" rel="stylesheet">-->
+		<link href="/dist/mui/css/mui.view.min.css" rel="stylesheet">
+		<link href="//cdn.staticfile.org/animate.css/3.5.2/animate.min.css">
+		<title>发现</title>
+	</head>
+
+	<body id="find" class="mui-fullscreen">
+		<div>
+			<!--页面主结构开始-->
+			<div id="app" class="mui-views">
+				<div class="mui-view">
+					<div class="mui-navbar">
+					</div>
+					<div class="mui-pages">
+					</div>
+				</div>
+			</div>
+			<!--页面主结构结束-->
+			<!--单页面开始-->
+			<div id="find-list" class="mui-page">
+				<!--页面标题栏开始-->
+				<div id="list-head" class="mui-navbar-inner mui-bar mui-bar-nav">
+					<div class="locationBar">
+						<i class="fa fa-map-marker pull-left" aria-hidden="true"></i>
+						<div id="locationName" class="mui-ellipsis"></div>
+						<i class="fa fa-caret-down pull-right" aria-hidden="true"></i>
+						<div class="mui-clearfix"></div>
+					</div>
+				</div>
+				<!--页面标题栏结束-->
+				<!--页面主内容区开始-->
+				<div class="mui-page-content">
+					<div class="mui-scroll-wrapper">
+						<!-- sos列表 -->
+						<div class="twoRankedBox">
+							<div class="mui-scroll">
+								<ul class="BoxLeft">
+									<!--<li>
+										<a class="linkDetail" href="#find-detail" data-idx='0'>
+											<div class="mui-card">
+												<div class="head-img mui-card-media">
+													<img src="http://dcloud.io/hellomui/images/cbd.jpg" />
+												</div>
+												<div class="mui-card-content">
+													<div class="mui-card-content-inner">
+														<p class="describes mui-ellipsis-2 fc-default">描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+														<div>
+															<span class="time mui-pull-left fc-light">2016-5-23 11:53</span>
+															<div class="mui-clearfix"></div>
+														</div>
+													</div>
+												</div>
+												<div class="userinfo mui-card-header mui-card-media">
+													<img src="http://dcloud.io/hellomui/images/logo.png">
+													<div class="mui-media-body">
+														<p>小M</p>
+														<p>浦东新区</p>
+													</div>
+												</div>
+											</div>
+										</a>
+									</li>-->
+								</ul>
+								<ul class="BoxRight">
+									<!--<li>
+										<a class="linkDetail" href="#find-detail" data-idx='0'>
+											<div class="mui-card">
+												<div class="head-img mui-card-media">
+													<img src="http://dcloud.io/hellomui/images/cbd.jpg" />
+												</div>
+												<div class="mui-card-content">
+													<div class="mui-card-content-inner">
+														<p class="describes mui-ellipsis-2 fc-default">描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+														<div>
+															<span class="time mui-pull-left fc-light">2016-5-23 11:53</span>
+															<div class="mui-clearfix"></div>
+														</div>
+													</div>
+												</div>
+												<div class="userinfo mui-card-header mui-card-media">
+													<img src="http://dcloud.io/hellomui/images/logo.png">
+													<div class="mui-media-body">
+														<p>小M</p>
+														<p>浦东新区</p>
+													</div>
+												</div>
+											</div>
+										</a>
+									</li>-->
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--页面主内容区结束-->
+			</div>
+			<!--单页面结束-->
+			#parse("/sos/find-detail.html")
+		</div>
+	</body>
+	<script src="/dist/mui/js/mui.min.js"></script>
+	<script src="/dist/mui/js/mui.view.min.js"></script>
+	<script src="/dist/mui/js/mui.pullToRefresh.min.js"></script>
+	<script src="/dist/mui/js/mui.pullToRefresh.material.min.js"></script>
+	<script src="/dist/mui/js/mui.lazyload.min.js"></script>
+	<script src="/dist/mui/js/mui.lazyload.img.min.js"></script>
+	<script src="/dist/js/sos_find.js"></script>
+	<script src="/dist/js/sos_detail.js"></script>
+	<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		//判断选择城市 弹出提示
+		var eleLocation = mui('#locationName')[0],
+			currentLocation = '$!location';
+		if(!currentLocation || currentLocation.replace(/ /g, '') == '' || typeof(currentLocation) == undefined || currentLocation == 'undefined') {
+			eleLocation.innerText = '请选择城市';
+
+			if(isWeiXin()) {
+				mui.alert('请允许微信定位的授权...否则请自行切换定位城市', '正找切换到当前城市', function() {
+					//					window.parent.location.href = 'location';
+				});
+			} else {
+				mui.alert('请选择完城市后进行操作', '检测到当前没有定位城市', function() {
+					window.parent.location.href = 'location';
+				});
+			}
+
+		} else {
+			eleLocation.innerText = currentLocation;
+		}
+
+		function isWeiXin() {
+			return window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger';
+		}
+	</script>
+
+</html>

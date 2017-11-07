@@ -1,0 +1,1 @@
+new loader(["/dist/js/jq.js","/dist/js/base.js"],function(s){var e=(Base.setTip("请求中..."),$("#regist"));e.on("touchend",".regist",function(s){})}).jsLoader();

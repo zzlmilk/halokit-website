@@ -1,0 +1,149 @@
+#set($js = "/dist/js")
+#set($css = "/dist/css")
+
+#*  以下定义一些公用的宏   *#
+
+
+## 空值控制
+#macro(output $val $id)
+    #if($!val && $!val.length == "")
+        无
+    #elseif(!$!val && $val != 0)
+        无
+    #end
+    $!{val}
+#end
+
+## 状态
+#macro(status $val $id)
+    #if($val)
+        开启
+    #else
+        禁用
+    #end
+#end
+## 性别
+#macro(sex $val $id)
+    #if($val == 1)
+        男
+    #else
+        女
+    #end
+#end
+## checkbox
+
+#macro(ck $val $id)<label class="form-checkbox" for="ck_$id"><input type="checkbox" data-id="$id" class="hide" #if($val) checked="checked" #end id="ck_$id"/><div class="slider"></div></label>#end
+
+## 平台类型
+#macro(platforms $val $id) #if($val == 1) 微信 #elseif($val == 2) 微博 #elseif($val == 3) QQ #else 未知 #end #end
+
+
+## 分页组件
+#macro(page $now $total $pageSize $count)
+    <div class="fl">
+        #set($show = $!total / $!pageSize)
+        #if($show < 1)
+            ## 防止首页计算
+            #set($show = 1)
+        #end
+        当前页码：$!now / $!parseInt($show)， 本页显示 $!count 条数据
+    </div>
+    <div class="fr">
+        <label style="border-right: 1px solid gray;margin-right: 15px;padding-right: 15px;">
+            输入页码： <input class="form-controll tc" type="text" style="width: 30px;" id="page-input-change" value="$!now"/>
+        </label>
+        #if($!now == 1)
+            <a href="javascript:" class="btn disabled">上一页</a>
+        #elseif($!now)
+            #set($prev = $!now - 1)
+            <a href="$!pageSite?pagenum=$!prev&count=$!pageSize" class="btn">上一页</a>
+        #end
+
+        #if($!parseInt($show) == $!now)
+            <a href="javascript:" class="btn disabled">下一页</a>
+        #elseif($!now)
+            #set($next = $!now + 1)
+            <a href="$!pageSite?pagenum=$!next&count=$!pageSize" class="btn">下一页</a>
+        #end
+    </div>
+#end
+
+## $options 定义table标题, style,class配置数组 , format
+## $obj则是数据
+#macro(table_list $options $obj $pageSize)
+    #if($options)
+    ## 生成头部
+    <thead>
+        <tr>
+            <td class="tc" >#</td>
+            #foreach($_item in $options)
+            <td class="$!_item.class"  style="$!_item.style">$!_item.title</td>
+            #end
+        </tr>
+    </thead>
+    ## 生成表格内容
+    <tbody>
+        #if($!obj)
+            #foreach($item in $!obj.list)
+            ## 控制隔行换色
+            <tr #if(${velocityCount}%2 == 0) class="linear" #end>
+                #set($index = ($!obj.pagenum - 1) * $pageSize + $velocityCount)
+                <td>${index}</td>
+                #foreach($tmp in $!options)
+                    <td class="$!tmp.class"  style="$!tmp.style">
+                        ## 新增format全部在此添加
+                        #set($id = $!item["id"])
+                        #set($val = $!item[$!tmp.name])
+
+                        ## 对subnames解析
+                        #set($subval = [])
+                        #foreach($valeach in $!tmp.subnames)
+                            #set($t = $subval.push($!item[$valeach]))
+                        #end
+
+                        ## 判断
+                        #if("cz" == $!tmp.format)
+                            #cz($val, $id, $subval)
+                        #elseif("ck" == $!tmp.format)
+                            #ck($val, $id, $subval)
+                        #elseif("status" == $!tmp.format)
+                            #status($val, $id, $subval)
+                        #elseif("sex" == $!tmp.format)
+                            #sex($val, $id, $subval)
+                        #elseif("link" == $!tmp.format)
+                            #link($val, $id, $subval)
+                        #elseif("platforms" == $!tmp.format)
+                            #platforms($val, $id, $subval)
+                        #else
+                            #output($val, $id, $subval)
+                        #end
+                    </td>
+                #end
+            </tr>
+            #end
+        #else
+        <tr >
+            #set($hereCol = $options.length + 1)
+            <td class="tc" colspan="$hereCol">本页没有任何数据，返回 <a class="btn link" href="/$!pageSite">第一页</a></td>
+        </tr>
+        #end
+    </tbody>
+    ## 生成分页组件
+    <tfoot>
+        <tr class="page">
+            #set($colspan = $options.length + 1)
+            <td colspan="$colspan">
+                #if($!obj)
+                    ## 调用分页模板
+                    #page($obj.pagenum, $obj.total, $pageSize, $obj.count)
+                #end
+            </td>
+
+        </tr>
+    </tfoot>
+    #else
+        <div class="col padder form-msg success" style="display:block">
+            <span class="star">*</span> 本页无数据， 返回首页： <a href="/" class="link"> 首页 </a>
+        </div>
+    #end
+#end

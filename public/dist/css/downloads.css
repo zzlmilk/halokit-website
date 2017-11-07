@@ -1,0 +1,145 @@
+html,
+body {
+	height: 100%;
+	width: 100%;
+	background-color: #222222;
+	overflow: hidden;
+	font-family: simhei, 黑体, '黑体';
+}
+
+.bg {
+	position: relative;
+	height: 100%;
+	background-image: url(/img/pc_img/d_bg_big.jpg);
+	background-position: top center;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+}
+
+#logo {
+	display: block;
+	width: 20%;
+	max-width: 204px;
+	position: absolute;
+	top: 125px;
+	left: 278px;
+}
+
+#advstr {
+	color: white;
+	font-size: 40px;
+	position: absolute;
+	top: 240px;
+	left: 278px;
+}
+
+#phone {
+	display: block;
+	width: 26%;
+	max-width: 316px;
+	position: absolute;
+	top: 140px;
+	right: 130px;
+}
+
+#qucode {
+	display: inline-block;
+	position: absolute;
+	top: 315px;
+	left: 170px;
+	width: 15%;
+	max-width: 174px;
+}
+
+#qucode img {
+	width: 100%;
+	display: block;
+}
+
+#qucode p {
+	color: white;
+	font-size: 15px;
+	padding: 15px 0;
+}
+
+button {
+	display: inline-block;
+	border: none;
+	padding: 0;
+	background-color: transparent;
+	position: absolute;
+	left: 372px;
+	width: 20%;
+	max-width: 204px;
+}
+
+button img {
+	width: 100%;
+	display: block;
+}
+
+#ios {
+	top: 320px;
+}
+
+#android {
+	top: 418px;
+}
+
+@media (max-width: 415px) {
+	.bg {
+		background-image: url(/img/pc_img/d_bg_small.jpg);
+		background-size: cover;
+	}
+	#logo {
+		width: 26%;
+		left: 37%;
+		top: 5%;
+	}
+	#advstr {
+		color: white;
+		font-size: 30px;
+		position: absolute;
+		top: 13%;
+		left: 0;
+		width: 100%;
+		display: block;
+		text-align: center;
+	}
+	#phone {
+		display: block;
+		width: 54%;
+		position: absolute;
+		top: 21%;
+		right: 23%;
+	}
+	#download {
+		width: 46%;
+		left: 27%;
+		top: 90.5%;
+	}
+}
+
+@media (max-height: 560px) {
+	#logo {
+		top: 2.5%;
+	}
+	#advstr {
+		top: 10.5%;
+	}
+	#phone {
+		top: 18%;
+	}
+}
+
+@media (max-height: 540px) {
+	#download {
+		top: 85%;
+	}
+}
+
+@media (max-height: 600px) {
+	#download {
+		top: 89%;
+	}
+}

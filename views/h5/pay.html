@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,  user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>订单确认</title>
+    <link rel="stylesheet" href="/dist/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/dist/css/prompt.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="pay-layer" class="pay-form">
+            <input type="text" name="recipientname" class="user-input db form-data" placeholder="收件人姓名 Recipient Name " />
+            <input type="number" name="recipientcontact" class="phone-input db form-data" placeholder="请输入您的手机号 Phone Number"/>
+            <!-- <div class="captcha-content">
+                <input type="text" name="captcha" class="captcha-input dlb" placeholder="请输入短信验证码" />
+                <span class="get-captcha dlb tac">获取短信验证码</span>
+            </div> -->
+            <input type="text" name="recipientaddress" class="db form-data" placeholder="收件地址 Recipient Address " />
+            <div class="err-word">
+            	请填写完整的信息
+                <!--#if($!count == 1)
+                    #set($price = 25)
+                #elseif($!count == 2)
+                    #set($price = 50)
+                #elseif($!count >= 3)
+                    #set($price = 75)
+                #end
+                单个优惠$price元，共优惠$!benefi元，赠送$!count个真皮带子-->
+            </div>
+            <div class="order-list">
+                <table class="w1">
+                    <tr class="list-details">
+                        <td class="img-ring"><img src="http://7xwshy.com1.z0.glb.clouddn.com/black.png" /></td>
+                        <td class="name-size-color">
+                            <div class="mb5">$!name</div>
+                            <div class="mt5">x $!count</div>
+                        </td>
+                        <td class="total-pay tar">
+                            <div class="mb5">支付金额：</div>
+                            <div class="need-pay mt5">$!payment ￥</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <button class="pay-btn db" id="pay-btn">支付</button>
+        </div>
+    </div>
+    <template name="confir_dialog">
+        <div class="wrap">
+            <div class="title-details tac">$*title</div>
+            <div class="prompt-info">$*content</div>
+            <div class="choose-btn c">
+                <button class="confirm-btn col">确认</button>
+            </div>
+        </div>
+    </template>
+    <!-- 服务器将对比 -->
+    <script>
+        var commodities = [],
+            payment = $payment;
+        #foreach($item in $carts)
+        commodities.push({
+            sku: "$item.id",
+            count: $item.count
+        });
+        #end
+    </script>
+	<script>
+		var memberid = '$!memberid',
+			shopcode = '$!shopcode',
+			type = '$!type';
+	</script>
+    <script type="text/javascript" src="/dist/js/loader.js"></script>
+    <script type="text/javascript" src="/js/pay.js"></script>
+</body>
+
+</html>

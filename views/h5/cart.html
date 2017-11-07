@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,  user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>购物车</title>
+		<link rel="stylesheet" href="/dist/css/base.css" />
+		<link rel="stylesheet" href="/dist/css/cart.css" />
+		<link rel="stylesheet" type="text/css" href="/dist/css/prompt.css">
+	</head>
+
+	<body>
+		<div class="cart-wrap pr" id="section">
+			<div class="cart-edit ml10 mr10 pr c">
+				#if($!type)
+                <a href="/h5/bf22e28c896a4a75b0cdc2fa5d450c01?memberid=$!memberid&shopcode=$!shopcode&type=$!type" class="edit-btn fl">返回</a>
+                #else
+                <a href="/h5/bf22e28c896a4a75b0cdc2fa5d450c01" class="edit-btn fl">返回</a>
+                #end
+				<label class="edit-btn fr" id="edit-btn">编辑</label>
+			</div>
+			<form class="cart-list ml10 mr10">
+				<table class="table-list">
+					<tbody>
+						#macro(name $val) #if($val == 'CAFE') 马鞍棕 #elseif($val == 'PINK') 桃子粉 #elseif($val=='BLACK') 绅士黒 #elseif($val == "WHITE") 秋麒麟 #end #end #foreach($item in $!data)
+						<tr class="check-item count-item" data-id="$!item.sku" data-price='$!item.price'>
+							<td class="td-choose tac">
+								<i class="check"></i>
+							</td>
+							<td class="td-ring"><img src="$!item.imagepath"></td>
+							<td class="td-details">
+								<div class="ring-details">
+									<span class="db">$!item.name</span>
+									<span class="db mt5 mb5">$!item.size.name</span>
+									<span class="db">#name($!item.color.name)</span>
+								</div>
+							</td>
+							<td class="td-price c">
+								<div class="price-number pr fr">
+									<span class="price-color db mb5">￥$!item.price</span>
+									<span class="db mb5 hidden">x1</span>
+									<span class="change-number db mt5">
+                                        <i class="circle cut #if($!item.count <= 1)disabled#end"></i>
+                                        <span class="dlb number ">$!item.count</span>
+									<i class="circle add"></i>
+									</span>
+								</div>
+							</td>
+						</tr>
+						#end
+					</tbody>
+				</table>
+			</form>
+			#if(!$!data)
+			<div class="prompt-text tac mt20">抱歉，您的购物车里没有商品，快去
+				#if($!type)
+                <a href="/h5/bf22e28c896a4a75b0cdc2fa5d450c01?memberid=$!memberid&shopcode=$!shopcode&type=$!type">添加</a> 吧...
+                #else
+                <a href="/h5/bf22e28c896a4a75b0cdc2fa5d450c01">添加</a> 吧...
+                #end
+			</div>
+			#end
+			<div class="all-pay pr c">
+				<div class="choose-btn ml10 dlb check-item"><i class="check check-all mr5"></i> 全选 | ￥ <i id="cart-count">0</i></div>
+				<label class="btn-pay dlb mr10 middle tac fr" id="submit-btn">提交订单</label>
+				<a class="btn-pay dlb mr10 middle tac fr hidden " href="javascript:void(0);" id="delete-btn">删除</a>
+			</div>
+		</div>
+		<template name="confir_order">
+			<div class="wrap">
+				<form id="pay-layer" class="pay-form">
+					<input type="text" name="userName" class="user-input db" placeholder="收件人姓名" />
+					<input type="number" name="phoneNumber" class="phone-input db" placeholder="请输入您的手机号 Phone Number" />
+					<div class="captcha-content">
+						<input type="text" name="captcha" class="captcha-input dlb" placeholder="请输入短信验证码" />
+						<span class="get-captcha dlb tac">获取短信验证码</span>
+					</div>
+					<input type="text" name="contactAddress" class="db" placeholder="联系地址" />
+					<div class="err-word">
+						收件人姓名不能为空
+					</div>
+					<div class="order-list">
+						<table class="w1">
+							<tr class="list-details">
+								<td class="img-ring"><img src="./img/ring-gold.png" /></td>
+								<td class="name-size-color">
+									<div class="mb5">$*name</div>
+									<div class="mt5">x $*num</div>
+								</td>
+								<td class="total-pay tar">
+									<div class="mb5">支付金额：</div>
+									<div class="need-pay mt5">$*price ￥</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<button class="pay-btn-not db">支付</button>
+				</form>
+			</div>
+		</template>
+		<template name="confir_dialog">
+			<div class="wrap">
+				<div class="title-details tac">$*title</div>
+				<div class="prompt-info">$*content</div>
+				<div class="choose-btn c">
+					<button class="confirm-btn col">确认</button>
+				</div>
+			</div>
+		</template>
+		<script>
+			var memberid = '$!memberid',
+				shopcode = '$!shopcode',
+				type = '$!type';
+		</script>
+
+		<script type="text/javascript" src="/dist/js/loader.js"></script>
+		<script type="text/javascript" src="/js/cart.js"></script>
+	</body>
+
+</html>

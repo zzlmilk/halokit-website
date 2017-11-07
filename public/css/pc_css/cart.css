@@ -1,0 +1,94 @@
+@charset 'utf-8';
+
+/**
+ * main
+ */
+.cart-info {
+    background: url(/img/pc_img/lb_bg.png) no-repeat left bottom;
+    height: 650px;
+    padding-top: 60px;
+    border-bottom: 2px solid #f5f5f5;
+}
+
+/* for-width */
+.for-wid {
+    width: 1100px;
+    height: 500px;
+}
+
+/* 主体内容 */
+.titl-cart img {
+    vertical-align: -4px;
+    width: 28px;
+}
+.titl-cart span {
+    letter-spacing: 1px;
+}
+
+/* table */
+.list-tab .head-tab tr {
+    height: 55px;
+}
+.list-tab .head-tab tr td {
+    padding-bottom: 20px;
+}
+
+.list-tab .body-tab tr {
+    height: 78px;
+}
+
+.list-tab td {
+    border-bottom: 1px solid #ccc;
+    min-width: 115px;
+    padding-left: 20px;
+    padding-right: 33px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.list-tab td:first-child {
+    min-width: 40px;
+}
+
+.list-tab .choose-list {
+    height: 25px;
+}
+
+
+.list-tab .change-count img {
+    vertical-align: -5px;
+}
+
+.list-tab .close-list img {
+    vertical-align: -5px;
+}
+
+/* btm-content */
+.btm-content {
+    height: 45px;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+
+/* product-count */
+.btm-content .btm-content-left .all-pro, .choosed-pro {
+    color: #f0b749;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.btm-content .btm-content-right {
+    color: #bcc91c;
+}
+
+.btm-content .btm-content-right a {
+    border: 2px solid #bcc91c;
+    padding: 10px 30px;
+}
+.check {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: top;
+    outline: 2px solid #bfc0c0;
+}
